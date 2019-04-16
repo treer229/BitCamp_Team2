@@ -104,17 +104,17 @@ color : black;
 							<div class = "list-group-item">비번: <%=rs.getString(2) %>
 							</div>
 							<div class = "list-group-item">이름
-								<input type = "text" value = "<%=rs.getString(3) %>"> 
+								<input type = "text" name = "name" value = "<%=rs.getString(3) %>"> 
 							</div>
 							<div class = "list-group-item">생일
-								<input type = "text" value = "<%=rs.getString(4) %>"> 
+								<input type = "text" name = "age" value = "<%=rs.getString(4) %>"> 
 							</div>
 							<div class = "list-group-item">성별
 							  	<div class="btn-group btn-group-toggle" data-toggle="buttons" style = "width : auto ; height: auto;">
                   
 									<label class="btn btn-primary">
 										<input type="radio" name="gender" id="gender" value = "남"
-										<%if(rs.getString(5).equals("여")){%>checked<%}%>>남자
+										<%if(rs.getString(5).equals("남")){%>checked<%}%>>남자
 									</label>
 									<label class="btn btn-danger">
 										<input type="radio" name="gender" id="gender" value = "여"
@@ -124,7 +124,7 @@ color : black;
 							</div>
 							
 							<div class = "list-group-item">이메일
-								<input type = "text" value = "<%=rs.getString(6) %>"> </div>
+								<input type = "text" name = "email" value = "<%=rs.getString(6) %>"> </div>
 							</div>
 							
 							<div style = "text-align: center ;">
