@@ -8,74 +8,74 @@ public class Comments {
     작업내용 : 댓글 dto 작성
     */
 	
-	private int Comment_Num;
-	private int Tr_Reply_Num;
-	private int Qna_Reply_Num;
-	private String Id;
-	private int Qna_Num;
-	private int Tr_Num;
-	private int Notice_Num;
-	private String Comments_Content;
-	private String Date;
-	public int getComment_Num() {
-		return Comment_Num;
+	private int comment_num;
+	private int tr_reply_num;
+	private int qna_reply_num;
+	private String id;
+	private int qna_num;
+	private int tr_num;
+	private int notice_num;
+	private String comments_content;
+	private String comment_date;
+	public int getcomment_num() {
+		return comment_num;
 	}
-	public void setComment_Num(int comment_Num) {
-		Comment_Num = comment_Num;
+	public void setcomment_num(int comment_num) {
+		comment_num = comment_num;
 	}
-	public int getTr_Reply_Num() {
-		return Tr_Reply_Num;
+	public int gettr_reply_num() {
+		return tr_reply_num;
 	}
-	public void setTr_Reply_Num(int tr_Reply_Num) {
-		Tr_Reply_Num = tr_Reply_Num;
+	public void settr_reply_num(int tr_reply_num) {
+		tr_reply_num = tr_reply_num;
 	}
-	public int getQna_Reply_Num() {
-		return Qna_Reply_Num;
+	public int getqna_reply_num() {
+		return qna_reply_num;
 	}
-	public void setQna_Reply_Num(int qna_Reply_Num) {
-		Qna_Reply_Num = qna_Reply_Num;
+	public void setqna_reply_num(int qna_reply_num) {
+		qna_reply_num = qna_reply_num;
 	}
-	public String getId() {
-		return Id;
+	public String getid() {
+		return id;
 	}
-	public void setId(String id) {
-		Id = id;
+	public void setid(String id) {
+		id = id;
 	}
-	public int getQna_Num() {
-		return Qna_Num;
+	public int getqna_num() {
+		return qna_num;
 	}
-	public void setQna_Num(int qna_Num) {
-		Qna_Num = qna_Num;
+	public void setqna_num(int qna_num) {
+		qna_num = qna_num;
 	}
-	public int getTr_Num() {
-		return Tr_Num;
+	public int gettr_num() {
+		return tr_num;
 	}
-	public void setTr_Num(int tr_Num) {
-		Tr_Num = tr_Num;
+	public void settr_num(int tr_num) {
+		tr_num = tr_num;
 	}
-	public int getNotice_Num() {
-		return Notice_Num;
+	public int getnotice_num() {
+		return notice_num;
 	}
-	public void setNotice_Num(int notice_Num) {
-		Notice_Num = notice_Num;
+	public void setnotice_num(int notice_num) {
+		notice_num = notice_num;
 	}
-	public String getComments_Content() {
-		return Comments_Content;
+	public String getcomments_content() {
+		return comments_content;
 	}
-	public void setComments_Content(String comments_Content) {
-		Comments_Content = comments_Content;
+	public void setcomments_content(String comments_content) {
+		comments_content = comments_content;
 	}
-	public String getDate() {
-		return Date;
+	public String getcomment_date() {
+		return comment_date;
 	}
-	public void setDate(String date) {
-		Date = date;
+	public void setcomment_date(String comment_date) {
+		comment_date = comment_date;
 	}
 	@Override
 	public String toString() {
-		return "Comments [Comment_Num=" + Comment_Num + ", Tr_Reply_Num=" + Tr_Reply_Num + ", Qna_Reply_Num="
-				+ Qna_Reply_Num + ", Id=" + Id + ", Qna_Num=" + Qna_Num + ", Tr_Num=" + Tr_Num + ", Notice_Num="
-				+ Notice_Num + ", Comments_Content=" + Comments_Content + ", Date=" + Date + "]";
+		return "Comments [comment_num=" + comment_num + ", tr_reply_num=" + tr_reply_num + ", qna_reply_num="
+				+ qna_reply_num + ", id=" + id + ", qna_num=" + qna_num + ", tr_num=" + tr_num + ", notice_num="
+				+ notice_num + ", comments_content=" + comments_content + ", comment_date=" + comment_date + "]";
 	}
 	
 }
