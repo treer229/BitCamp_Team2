@@ -1,6 +1,12 @@
 package kr.or.bit.dto;
 
 public class Schedule {
+	/*
+    작업일자 : 2019-05-08
+    작업자 :    정진호
+    작업내용 : 스케줄 dto 작성
+    */
+	
 	private int Schedule_NUM;
 	private int DELETEOK;
 	private int COMPLETEOK;
