@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 
-
-@WebServlet("*.TravelreviewReply")
-public class TravelreviewReplyController extends HttpServlet {
+/**
+ * Servlet implementation class CommentsController
+ */
+@WebServlet("*.Comments")
+public class CommentsController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public TravelreviewReplyController() {
+    public CommentsController() {
         super();
-        
+        // TODO Auto-generated constructor stub
     }
+
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	ActionForward forward = null;
@@ -35,14 +38,11 @@ public class TravelreviewReplyController extends HttpServlet {
     	System.out.println("url_Command"+url_Command+"컨트롤러 check");
     	
     	
-    	if(url_Command.equals("/Register.do")) {// 업무처리
-      	  
-    	   System.out.println("if확인");
-			
-			 
-
+    	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
+    		
+    		
     	}  else if(url_Command.equals("/MemoList.do")) {
-    		forward = new ActionForward();
+    //		forward = new ActionForward();
     //		forward.setPath(/*여기에 주소를 넣어주세요*/);
     	}
     }
@@ -56,5 +56,4 @@ public class TravelreviewReplyController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
 }
