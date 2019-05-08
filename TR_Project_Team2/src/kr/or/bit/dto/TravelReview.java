@@ -1,4 +1,6 @@
 package kr.or.bit.dto;
+
+
 /*
 작업일자 : 2019-05-08
 작업자 :   이힘찬
@@ -10,7 +12,7 @@ public class TravelReview {			//여행후기
 	private String tr_title;		//여행후기_제목
 	private String content;			//내용
 	private int views;				//조회수
-	private String created_date;	//작성일
+	private String created_date;		//작성일
 	private int comment_count;		//댓글수
 	
 	// 계층형
@@ -18,6 +20,24 @@ public class TravelReview {			//여행후기
 	private int depth; 				// 들여쓰기
 	private int step; 				// 글의 순서
 	
+	
+	public TravelReview() {
+		
+	}
+	
+	public TravelReview(int tr_num, String id, String tr_title, String content, int views, String created_date2,
+			int comment_count, int refer, int depth, int step) {
+		this.tr_num = tr_num;
+		this.id = id;
+		this.tr_title = tr_title;
+		this.content = content;
+		this.views = views;
+		this.created_date = created_date2;
+		this.comment_count = comment_count;
+		this.refer = refer;
+		this.depth = depth;
+		this.step = step;
+	}
 	
 	public int getTr_num() {
 		return tr_num;
