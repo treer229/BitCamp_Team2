@@ -13,7 +13,7 @@ import kr.or.bit.action.ActionForward;
 /**
  * Servlet implementation class QnaReplyController
  */
-@WebServlet("/*.QnaReply")
+@WebServlet("*.QnaReply")
 public class QnaReplyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
