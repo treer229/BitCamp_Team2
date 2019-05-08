@@ -5,62 +5,63 @@ package kr.or.bit.dto;
 작업내용 : 회원 dto 작성
 */
 public class Member { 			//회원table
-	private String Id;			//아이디
-	private String Password;	//비밀번호
-	private String Name;		//이름
-	private int Gender;			//성별		
-	private String Email;		//이메일
-	private String Travel;		//관심여행지역
-	private int Admin;			//관리여부
+	private String id;			//아이디
+	private String password;	//비밀번호
+	private String name;		//이름
+	private int gender;			//성별		
+	private String email;		//이메일
+	private String travel;		//관심여행지역
+	private int admin;			//관리여부
 	
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public int getGender() {
-		return Gender;
+		return gender;
 	}
 	public void setGender(int gender) {
-		Gender = gender;
+		this.gender = gender;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getTravel() {
-		return Travel;
+		return travel;
 	}
 	public void setTravel(String travel) {
-		Travel = travel;
+		this.travel = travel;
 	}
 	public int getAdmin() {
-		return Admin;
+		return admin;
 	}
 	public void setAdmin(int admin) {
-		Admin = admin;
+		this.admin = admin;
 	}
 	
 	@Override
 	public String toString() {
-		return "Member [Id=" + Id + ", Password=" + Password + ", Name=" + Name + ", Gender=" + Gender + ", Email="
-				+ Email + ", Travel=" + Travel + ", Admin=" + Admin + "]";
+		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", gender=" + gender + ", email="
+				+ email + ", travel=" + travel + ", admin=" + admin + "]";
 	}
+	
 	
 	
 	
