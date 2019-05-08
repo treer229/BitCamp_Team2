@@ -7,61 +7,68 @@ package kr.or.bit.dto;
 
 public class Qna {
 
-	private int Qna_Num;				//묻고답하기_글번호
-	private String Id;					//아이디
-	private String Qna_Title;			//묻고답하기_제목
-	private String Qna_Content;			//내용
-	private int Views;					//조회수
-	private String Qna_Created_Date;	//작성일
-	private int Qna_Comment_Count;		//댓글수
-	public int getQna_Num() {
-		return Qna_Num;
+	private int qna_num;				//묻고답하기_글번호
+	private String id;					//아이디
+	private String qna_title;			//묻고답하기_제목
+	private String qna_content;			//내용
+	private int views;					//조회수
+	private String qna_created_date;	//작성일
+	private int qna_comment_count;		//댓글수
+	
+	//계층형
+	private int refer;	//참조
+	private int depth;	//들여쓰기
+	private int step;	//글의 순서
+	
+	public int getQna_num() {
+		return qna_num;
 	}
-	public void setQna_Num(int qna_Num) {
-		Qna_Num = qna_Num;
+	public void setQna_num(int qna_num) {
+		this.qna_num = qna_num;
 	}
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
-	public String getQna_Title() {
-		return Qna_Title;
+	public String getQna_title() {
+		return qna_title;
 	}
-	public void setQna_Title(String qna_Title) {
-		Qna_Title = qna_Title;
+	public void setQna_title(String qna_title) {
+		this.qna_title = qna_title;
 	}
-	public String getQna_Content() {
-		return Qna_Content;
+	public String getQna_content() {
+		return qna_content;
 	}
-	public void setQna_Content(String qna_Content) {
-		Qna_Content = qna_Content;
+	public void setQna_content(String qna_content) {
+		this.qna_content = qna_content;
 	}
 	public int getViews() {
-		return Views;
+		return views;
 	}
 	public void setViews(int views) {
-		Views = views;
+		this.views = views;
 	}
-	public String getQna_Created_Date() {
-		return Qna_Created_Date;
+	public String getQna_created_date() {
+		return qna_created_date;
 	}
-	public void setQna_Created_Date(String qna_Created_Date) {
-		Qna_Created_Date = qna_Created_Date;
+	public void setQna_created_date(String qna_created_date) {
+		this.qna_created_date = qna_created_date;
 	}
-	public int getQna_Comment_Count() {
-		return Qna_Comment_Count;
+	public int getQna_comment_count() {
+		return qna_comment_count;
 	}
-	public void setQna_Comment_Count(int qna_Comment_Count) {
-		Qna_Comment_Count = qna_Comment_Count;
+	public void setQna_comment_count(int qna_comment_count) {
+		this.qna_comment_count = qna_comment_count;
 	}
 	@Override
 	public String toString() {
-		return "Qna [Qna_Num=" + Qna_Num + ", Id=" + Id + ", Qna_Title=" + Qna_Title + ", Qna_Content=" + Qna_Content
-				+ ", Views=" + Views + ", Qna_Created_Date=" + Qna_Created_Date + ", Qna_Comment_Count="
-				+ Qna_Comment_Count + "]";
+		return "Qna [qna_num=" + qna_num + ", id=" + id + ", qna_title=" + qna_title + ", qna_content=" + qna_content
+				+ ", views=" + views + ", qna_created_date=" + qna_created_date + ", qna_comment_count="
+				+ qna_comment_count + "]";
 	}
+	
 
 	
 	
