@@ -30,7 +30,7 @@ public class MemberDao {
 			 ds = (DataSource)context.lookup("java:comp/env/jdbc/oracle");
 			
 		}catch (Exception e) {
-			System.out.println("look yp Fail"+ e.getMessage());
+			System.out.println("look up Fail"+ e.getMessage());
 		}
 	}
 	
