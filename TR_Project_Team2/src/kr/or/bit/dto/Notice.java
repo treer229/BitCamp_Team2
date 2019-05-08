@@ -6,45 +6,45 @@ public class Notice {
     작업자 :    권순조
     작업내용 : 공지 dto 작성
     */
-	private int Notice_Num;
-	private int Notice_Title;
-	private String Notice_Content;
-	private String Date;
-	private int Comment_Count;
-	public int getNotice_Num() {
-		return Notice_Num;
+	private int notice_num;
+	private int notice_title;
+	private String notice_content;
+	private String date;
+	private int comment_count;
+	public int getnotice_num() {
+		return notice_num;
 	}
-	public void setNotice_Num(int notice_Num) {
-		Notice_Num = notice_Num;
+	public void setnotice_num(int notice_num) {
+		notice_num = notice_num;
 	}
-	public int getNotice_Title() {
-		return Notice_Title;
+	public int getnotice_title() {
+		return notice_title;
 	}
-	public void setNotice_Title(int notice_Title) {
-		Notice_Title = notice_Title;
+	public void setnotice_title(int notice_title) {
+		notice_title = notice_title;
 	}
-	public String getNotice_Content() {
-		return Notice_Content;
+	public String getnotice_content() {
+		return notice_content;
 	}
-	public void setNotice_Content(String notice_Content) {
-		Notice_Content = notice_Content;
+	public void setnotice_content(String notice_content) {
+		notice_content = notice_content;
 	}
-	public String getDate() {
-		return Date;
+	public String getdate() {
+		return date;
 	}
-	public void setDate(String date) {
-		Date = date;
+	public void setdate(String date) {
+		date = date;
 	}
-	public int getComment_Count() {
-		return Comment_Count;
+	public int getcomment_count() {
+		return comment_count;
 	}
-	public void setComment_Count(int comment_Count) {
-		Comment_Count = comment_Count;
+	public void setcomment_count(int comment_count) {
+		comment_count = comment_count;
 	}
 	@Override
 	public String toString() {
-		return "Notice [Notice_Num=" + Notice_Num + ", Notice_Title=" + Notice_Title + ", Notice_Content="
-				+ Notice_Content + ", Date=" + Date + ", Comment_Count=" + Comment_Count + "]";
+		return "Notice [notice_num=" + notice_num + ", notice_title=" + notice_title + ", notice_content="
+				+ notice_content + ", date=" + date + ", comment_count=" + comment_count + "]";
 	}
 	
 }
