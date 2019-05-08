@@ -7,6 +7,16 @@ public class Schedule {
     작업내용 : 스케줄 dto 작성
     */
 	
+	private int Schedule_NUM;
+	private int DELETEOK;
+	private int COMPLETEOK;
+	private String ID;
+	private String Schedule_TITLE;
+	private String Content;
+	private String Color;
+	private String Schedule_START;
+	private String Schedule_END;
+	
 	private int schedule_num;
 	private int deleteok;
 	private int completeok;
