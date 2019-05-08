@@ -42,6 +42,4 @@ public class Checklist {
 		return "Checklist [CL_NUM=" + CL_NUM + ", ID=" + ID + ", CL_TITLE=" + CL_TITLE + ", COLOR=" + COLOR + "]";
 	}
 	
-	
-	
 }
