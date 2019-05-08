@@ -13,6 +13,12 @@ public class TravelReview {			//여행후기
 	private String created_date;	//작성일
 	private int comment_count;		//댓글수
 	
+	// 계층형
+	private int refer; 				// 참조
+	private int depth; 				// 들여쓰기
+	private int step; 				// 글의 순서
+	
+	
 	public int getTr_num() {
 		return tr_num;
 	}
