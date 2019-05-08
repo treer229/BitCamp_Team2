@@ -7,46 +7,47 @@
 package kr.or.bit.dto;
 
 public class Qna_Reply {
-	private int Qna_Reply_Num;			//묻고답하기답글 번호
-	private String Id;					//아이디
-	private int Qna_Num;				//묻고답하기 원글번호
-	private String Qna_Reply_Title;		//묻고답하기답글 제목
-	private String Qna_Reply_Content;	//묻고답하기답글 내용
-	public int getQna_Reply_Num() {
-		return Qna_Reply_Num;
+	private int qna_reply_num;			//묻고답하기답글 번호
+	private String id;					//아이디
+	private int qna_num;				//묻고답하기 원글번호
+	private String qna_reply_title;		//묻고답하기답글 제목
+	private String qna_reply_content;	//묻고답하기답글 내용
+	public int getQna_reply_num() {
+		return qna_reply_num;
 	}
-	public void setQna_Reply_Num(int qna_Reply_Num) {
-		Qna_Reply_Num = qna_Reply_Num;
+	public void setQna_reply_num(int qna_reply_num) {
+		this.qna_reply_num = qna_reply_num;
 	}
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
-	public int getQna_Num() {
-		return Qna_Num;
+	public int getQna_num() {
+		return qna_num;
 	}
-	public void setQna_Num(int qna_Num) {
-		Qna_Num = qna_Num;
+	public void setQna_num(int qna_num) {
+		this.qna_num = qna_num;
 	}
-	public String getQna_Reply_Title() {
-		return Qna_Reply_Title;
+	public String getQna_reply_title() {
+		return qna_reply_title;
 	}
-	public void setQna_Reply_Title(String qna_Reply_Title) {
-		Qna_Reply_Title = qna_Reply_Title;
+	public void setQna_reply_title(String qna_reply_title) {
+		this.qna_reply_title = qna_reply_title;
 	}
-	public String getQna_Reply_Content() {
-		return Qna_Reply_Content;
+	public String getQna_reply_content() {
+		return qna_reply_content;
 	}
-	public void setQna_Reply_Content(String qna_Reply_Content) {
-		Qna_Reply_Content = qna_Reply_Content;
+	public void setQna_reply_content(String qna_reply_content) {
+		this.qna_reply_content = qna_reply_content;
 	}
 	@Override
 	public String toString() {
-		return "Qna_Reply [Qna_Reply_Num=" + Qna_Reply_Num + ", Id=" + Id + ", Qna_Num=" + Qna_Num
-				+ ", Qna_Reply_Title=" + Qna_Reply_Title + ", Qna_Reply_Content=" + Qna_Reply_Content + "]";
+		return "Qna_Reply [qna_reply_num=" + qna_reply_num + ", id=" + id + ", qna_num=" + qna_num
+				+ ", qna_reply_title=" + qna_reply_title + ", qna_reply_content=" + qna_reply_content + "]";
 	}
+	
 	
 	
 }
