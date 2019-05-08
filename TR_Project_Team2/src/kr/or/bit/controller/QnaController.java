@@ -11,7 +11,7 @@ import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 
 
-@WebServlet("/*.Qna")
+@WebServlet("*.Qna")
 public class QnaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
