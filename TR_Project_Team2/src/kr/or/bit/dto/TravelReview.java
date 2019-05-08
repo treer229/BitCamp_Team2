@@ -5,60 +5,61 @@ package kr.or.bit.dto;
 작업내용 : 여행후기 dto 작성
 */
 public class TravelReview {			//여행후기
-	private int Tr_Num;				//여행후기_글번호
-	private String Id;				//아이디
-	private String Tr_Title;		//여행후기_제목
-	private String Content;			//내용
-	private int Views;				//조회수
-	private String Created_Date;	//작성일
-	private int Comment_Count;		//댓글수
+	private int tr_num;				//여행후기_글번호
+	private String id;				//아이디
+	private String tr_title;		//여행후기_제목
+	private String content;			//내용
+	private int views;				//조회수
+	private String created_date;	//작성일
+	private int comment_count;		//댓글수
 	
-	public int getTr_Num() {
-		return Tr_Num;
+	public int getTr_num() {
+		return tr_num;
 	}
-	public void setTr_Num(int tr_Num) {
-		Tr_Num = tr_Num;
+	public void setTr_num(int tr_num) {
+		this.tr_num = tr_num;
 	}
 	public String getId() {
-		return Id;
+		return id;
 	}
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
-	public String getTr_Title() {
-		return Tr_Title;
+	public String getTr_title() {
+		return tr_title;
 	}
-	public void setTr_Title(String tr_Title) {
-		Tr_Title = tr_Title;
+	public void setTr_title(String tr_title) {
+		this.tr_title = tr_title;
 	}
 	public String getContent() {
-		return Content;
+		return content;
 	}
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
 	public int getViews() {
-		return Views;
+		return views;
 	}
 	public void setViews(int views) {
-		Views = views;
+		this.views = views;
 	}
-	public String getCreated_Date() {
-		return Created_Date;
+	public String getCreated_date() {
+		return created_date;
 	}
-	public void setCreated_Date(String created_Date) {
-		Created_Date = created_Date;
+	public void setCreated_date(String created_date) {
+		this.created_date = created_date;
 	}
-	public int getComment_Count() {
-		return Comment_Count;
+	public int getComment_count() {
+		return comment_count;
 	}
-	public void setComment_Count(int comment_Count) {
-		Comment_Count = comment_Count;
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
 	}
 	
 	@Override
 	public String toString() {
-		return "TravelReview [Tr_Num=" + Tr_Num + ", Id=" + Id + ", Tr_Title=" + Tr_Title + ", Content=" + Content
-				+ ", Views=" + Views + ", Created_Date=" + Created_Date + ", Comment_Count=" + Comment_Count + "]";
+		return "TravelReview [tr_num=" + tr_num + ", id=" + id + ", tr_title=" + tr_title + ", content=" + content
+				+ ", views=" + views + ", created_date=" + created_date + ", comment_count=" + comment_count + "]";
 	}
+	
 }
