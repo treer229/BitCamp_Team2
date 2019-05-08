@@ -11,7 +11,7 @@ import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 
 
-@WebServlet("/*.Checklist")
+@WebServlet("*.Checklist")
 public class ChecklistController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

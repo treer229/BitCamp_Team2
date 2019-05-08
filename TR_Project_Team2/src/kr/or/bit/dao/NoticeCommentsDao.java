@@ -31,7 +31,6 @@ public class NoticeCommentsDao {
 	public int insertComment(Notice_Comments Notice_comments) {
 		int row = 0;
 		try {
-
 			conn = ds.getConnection();
 			String sql = "insert into NOTICE_COMMENTS (NOTICE_NUM, ID, CONTENT,CREATED_DATE) values (?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
