@@ -6,32 +6,34 @@ public class Checklistcontent {
     작업자 :    정진호
     작업내용 : 체크리스트Content dto 작성
     */
-	private int CLC_NUM;
-	private int CL_NUM;
-	private String CONTENT;
+	private int clc_num;
+	private int cl_num;
+	private String content;
 	
-	public int getCLC_NUM() {
-		return CLC_NUM;
+	public int getClc_num() {
+		return clc_num;
 	}
-	public void setCLC_NUM(int cLC_NUM) {
-		CLC_NUM = cLC_NUM;
+	public void setClc_num(int clc_num) {
+		this.clc_num = clc_num;
 	}
-	public int getCL_NUM() {
-		return CL_NUM;
+	public int getCl_num() {
+		return cl_num;
 	}
-	public void setCL_NUM(int cL_NUM) {
-		CL_NUM = cL_NUM;
+	public void setCl_num(int cl_num) {
+		this.cl_num = cl_num;
 	}
-	public String getCONTENT() {
-		return CONTENT;
+	public String getContent() {
+		return content;
 	}
-	public void setCONTENT(String cONTENT) {
-		CONTENT = cONTENT;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	@Override
 	public String toString() {
-		return "Checklistcontent [CLC_NUM=" + CLC_NUM + ", CL_NUM=" + CL_NUM + ", CONTENT=" + CONTENT + "]";
+		return "Checklistcontent [clc_num=" + clc_num + ", cl_num=" + cl_num + ", content=" + content + "]";
 	}
+	
+	
 	
 	
 	
