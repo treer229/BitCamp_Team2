@@ -7,25 +7,26 @@ public class Checklistok {
     작업내용 : 체크리스트OK dto 작성
     */
 	
-	private int CLC_NUM;
-	private int CLCC_CHECKED;
+	private int clc_num;
+	private int clcc_checked;
 	
-	public int getCLC_NUM() {
-		return CLC_NUM;
+	public int getClc_num() {
+		return clc_num;
 	}
-	public void setCLC_NUM(int cLC_NUM) {
-		CLC_NUM = cLC_NUM;
+	public void setClc_num(int clc_num) {
+		this.clc_num = clc_num;
 	}
-	public int getCLCC_CHECKED() {
-		return CLCC_CHECKED;
+	public int getClcc_checked() {
+		return clcc_checked;
 	}
-	public void setCLCC_CHECKED(int cLCC_CHECKED) {
-		CLCC_CHECKED = cLCC_CHECKED;
+	public void setClcc_checked(int clcc_checked) {
+		this.clcc_checked = clcc_checked;
 	}
 	@Override
 	public String toString() {
-		return "Checklistok [CLC_NUM=" + CLC_NUM + ", CLCC_CHECKED=" + CLCC_CHECKED + "]";
+		return "Checklistok [clc_num=" + clc_num + ", clcc_checked=" + clcc_checked + "]";
 	}
-
+	
+	
 	
 }
