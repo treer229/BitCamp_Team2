@@ -92,22 +92,23 @@ public class ChecklistDAO {
 	}
 		return check;
 	}
-	public List<Checklistcontent> getChecklistContent(Checklist list) {
-		List<Checklistcontent> contentlist = new ArrayList<Checklistcontent>();
+	public Checklistcontent getChecklistContent(int clc_num) {
+		Checklistcontent content = null;
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from CHECKLIST_CONTENT where CLC_NUM = ?";
+			String sql = "select * from CHECKLIST_CONTENT where CL_NUM = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, list.getCl_num());
+			pstmt.setInt(1, clc_num);
 			
 			rs = pstmt.executeQuery();
 			System.out.println("체크컨텐츠 쿼리문 실행 완료");
-			while(rs.next()) {
-				Checklistcontent content = new Checklistcontent();
+			if(rs.next()) {
+				content = new Checklistcontent();
 				content.setClc_num(rs.getInt(1));
 				content.setCl_num(rs.getInt(2));
 				content.setContent(rs.getString(3));
-				contentlist.add(content);
+			}else {
+				System.out.println("체크컨텐츠 없음");
 			}
 			System.out.println("체크컨텐츠 담기 완료");
 		} catch (Exception e) {
@@ -118,7 +119,7 @@ public class ChecklistDAO {
     	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){System.out.println("체크컨텐츠 pstmt DB서버 닫기 실패"); System.out.println(e.getMessage());}
 			if(conn!=null) try{conn.close();}catch (Exception e){System.out.println("체크컨텐츠 conn DB서버 닫기 실패"); System.out.println(e.getMessage());}
 	}
-		return contentlist;
+		return content;
 	}
 	public List<Checklistok> getCheckListok(Checklistcontent content) {
 		List<Checklistok> list = new ArrayList<Checklistok>();
