@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.Checklistservice;
+import kr.or.bit.service.DeleteChecklist;
+import kr.or.bit.service.InsertChecklist;
+import kr.or.bit.service.ReadChecklist;
+import kr.or.bit.service.UpdateChecklist;
+import kr.or.bit.service.UpdateOkChecklist;
 
 
 @WebServlet("*.Checklist")
@@ -40,9 +44,46 @@ public class ChecklistController extends HttpServlet {
     	System.out.println("url_Command"+url_Command+"컨트롤러 check");
     	
     	
-    	if(url_Command.equals("/test.Checklist")) {// 업무처리
-      	  	action = new Checklistservice();
-      	  	forward = action.execute(request, response);
+    	if(url_Command.equals("/write.Checklist")) {// 업무처리
+      	  	action = new InsertChecklist();
+      	  	try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("Checkwrite업무 에러");
+				e.printStackTrace();
+			}
+    	}else if(url_Command.equals("/read.Checklist")) {
+    		action = new ReadChecklist();
+      	  	try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("Checkread업무 에러");
+				e.printStackTrace();
+			}
+    	}else if(url_Command.equals("/del.Checklist")) {
+    		action = new DeleteChecklist();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("Checkdelete업무 에러");
+				e.printStackTrace();
+			}
+    	}else if(url_Command.equals("/edit.Checklist")) {
+    		action = new UpdateChecklist();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("Checkedit업무 에러");
+				e.printStackTrace();
+			}
+    	}else if(url_Command.equals("/updateok.Checklist")) {
+    		action = new UpdateOkChecklist();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("updateok업무 에러");
+				e.printStackTrace();
+			}
     	}
     	
     	
