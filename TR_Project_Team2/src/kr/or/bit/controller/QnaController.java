@@ -22,7 +22,7 @@ public class QnaController extends HttpServlet {
     }
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	ActionForward forward = null;
+    	ActionForward forward = new ActionForward();
     	Action action = null;
     	
     	//요청받기 시작
@@ -35,8 +35,9 @@ public class QnaController extends HttpServlet {
     	System.out.println("url_Command"+url_Command+"컨트롤러 check");
     	
     	
-    	if(url_Command.equals("/Register.do")) {// 업무처리
-      	  
+    	if(url_Command.equals("/QnaWrite.Qna")) {// 업무처리
+    	   forward.setRedirect(false);
+    	   forward.setPath("");
     	   System.out.println("if확인");
 			
 			 
