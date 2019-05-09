@@ -8,23 +8,24 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.NoticeCommentsDao;
 import kr.or.bit.dto.Notice_Comments;
 
-public class InsertCommentsService implements Action {
+public class CommentsInsertService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("comments 서비스 시작");
-		String id = request.getParameter("id");
-		String content = request.getParameter("content");
-		String date = request.getParameter("date");
+		String id = request.getParameter("id");//글쓴이 아이디
+		String content = request.getParameter("content");//댓글 내용
+		String date = request.getParameter("date");//댓글을 쓴 날자
+		int notice_num = Integer.parseInt(request.getParameter("notice_num"));//글번호 받아와야 댓글을 찾을 수 있습니다.
 		
 		System.out.println(id);
 		System.out.println(content);
 		System.out.println(date);
-
+		System.out.println(notice_num);
+		
 		Notice_Comments noticomments = new Notice_Comments();
 		
-		noticomments.setComments_num(1);
-		noticomments.setNotice_num(1);
+		noticomments.setNotice_num(notice_num);
 		noticomments.setId(id);
 		noticomments.setComments_content(content);
 		
@@ -39,5 +40,4 @@ public class InsertCommentsService implements Action {
 		System.out.println("서비스 끝");
 		return forward;
 	}
-	
 }
