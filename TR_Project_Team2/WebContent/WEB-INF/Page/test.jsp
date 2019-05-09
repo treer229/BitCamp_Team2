@@ -70,7 +70,7 @@ $(function(){
 	<thead><th>글번호 </th><th>글 제목</th><th>색상</th><th>아이디</th><th>수정</th><th>삭제</th></thead>
 	<tbody>
 	<c:forEach var ="i" items="${list }">
-	<tr><td>${i.cl_num }</td><td>${i.cl_title }</td><td>${i.color }</td><td>${i.id }</td>
+	<tr><td>${i.cl_num }</td><td><a href = "CheckContent.Checklist?num=${i.cl_num }" id = "contents">${i.cl_title }</a></td><td>${i.color }</td><td>${i.id }</td>
 	<td>
 	
 	<form action="edit.Checklist" method ="post" id = "editform" name = "editform">
