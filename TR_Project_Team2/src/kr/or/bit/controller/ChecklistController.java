@@ -26,7 +26,7 @@ public class ChecklistController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	ActionForward forward = null;
     	Action action = null;
     	
