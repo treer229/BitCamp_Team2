@@ -31,7 +31,7 @@ public class QnaEditOkService implements Action{
 		//int result = service.board_edit(request);
 		
 		QnaDao dao = new QnaDao();
-		int result = dao.boardedit(request);
+		int result = dao.boardEdit(request);
 		
 		ActionForward forward = new ActionForward();
 	    request.setAttribute("result", result);
