@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.InsertCommentsService;
 
 /**
  * Servlet implementation class CommentsController
@@ -39,11 +40,19 @@ public class CommentsController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
-    		
+    		System.out.println("InsertNotice.Comments");
+    		action = new InsertCommentsService();
+      	  	try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("컨트롤러 막힘");
+				e.printStackTrace();
+			}
     		
     	}  else if(url_Command.equals("/MemoList.do")) {
     //		forward = new ActionForward();
     //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+    		System.out.println("else탓다");
     	}
     }
 		
