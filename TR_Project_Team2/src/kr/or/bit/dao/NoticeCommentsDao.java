@@ -40,10 +40,9 @@ public class NoticeCommentsDao {
 			conn = ds.getConnection();
 			String sql = "insert into NOTICE_COMMENTS ( NOTICE_NUM, ID, CONTENT,CREATED_DATE, COMMENT_NUM) values (?,?,?,sysdate,NOTICE_COMMENTS_SEQ.NEXTVAL)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, 1);
+			pstmt.setInt(1, Notice_comments.getNotice_num());
 			pstmt.setString(2, Notice_comments.getId());
 			pstmt.setString(3, Notice_comments.getComments_content());
-			
 
 			row = pstmt.executeUpdate();
 
