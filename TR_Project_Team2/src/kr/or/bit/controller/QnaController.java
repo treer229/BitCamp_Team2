@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.QnaWriteService;
 
 
 @WebServlet("*.Qna")
@@ -37,7 +38,7 @@ public class QnaController extends HttpServlet {
     	
     	if(url_Command.equals("/QnaWrite.Qna")) {// 업무처리
     	   forward.setRedirect(false);
-    	   forward.setPath("");
+    	   forward.setPath("/board/board_write.jsp");
     	   System.out.println("if확인");
 			
 			 
@@ -45,6 +46,12 @@ public class QnaController extends HttpServlet {
     	}  else if(url_Command.equals("/MemoList.do")) {
     		forward = new ActionForward();
     //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+    		action=new QnaWriteService();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
     }
 		

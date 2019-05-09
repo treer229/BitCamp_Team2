@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.dao.QnaDao;
 
 public class QnaEditOkService implements Action{
 
@@ -14,12 +15,13 @@ public class QnaEditOkService implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//request.setCharacterEncoding("utf-8");
 		
-		String idx = request.getParameter("idx");
+		int qna_num = Integer.parseInt(request.getParameter("qna_num"));
 		String msg = "";
 		String url ="";
 		PrintWriter out = response.getWriter();
 		
-		if(idx == null || idx.trim().equals("")){
+//		if(idx == null || idx.trim().equals("")){
+		if(qna_num==0) {
 			out.print("<script>");
 			out.print("alert('글번호 오류');");
 			out.print("location.href='board_list.jsp'");	   
@@ -28,12 +30,12 @@ public class QnaEditOkService implements Action{
 		//boardservice service = boardservice.getInstance();
 		//int result = service.board_edit(request);
 		
-		boarddao dao = new boarddao();
-		int result = dao.boardedit(request);
+		QnaDao dao = new QnaDao();
+		int result = dao.boardEdit(request);
 		
 		ActionForward forward = new ActionForward();
 	    request.setAttribute("result", result);
-	    request.setAttribute("idx", idx);
+	    request.setAttribute("qna_num", qna_num);
 	    
 	    forward.setRedirect(false);
 		forward.setPath("/board/board_editok.jsp");

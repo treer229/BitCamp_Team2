@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.InsertScheduleOk;
+import kr.or.bit.service.ScheduleInsertOk;
+import kr.or.bit.service.ScheduleDelete;
+import kr.or.bit.service.ScheduleEdit;
+import kr.or.bit.service.ScheduleEditOk;
 import kr.or.bit.service.ScheduleListAll;
 
 
@@ -53,11 +56,35 @@ public class ScheduleController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/WEB-INF/Page/insertschedule.jsp");
 		}else if(url_Command.equals("/insertOk.Schedule")) {
-			action = new InsertScheduleOk();
+			action = new ScheduleInsertOk();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				System.out.println("스케줄추가 업무 에러");
+				e.printStackTrace();
+			}
+		}else if(url_Command.equals("/edit.Schedule")) {
+			action = new ScheduleEdit();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("스케줄수정 업무 에러");
+				e.printStackTrace();
+			}
+		}else if(url_Command.equals("/editok.Schedule")) {
+			action = new ScheduleEditOk();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("스케줄 업데이트 업무 에러");
+				e.printStackTrace();
+			}
+		}else if(url_Command.equals("/del.Schedule")) {
+			action = new ScheduleDelete();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("스케줄삭제 업무 에러");
 				e.printStackTrace();
 			}
 		}

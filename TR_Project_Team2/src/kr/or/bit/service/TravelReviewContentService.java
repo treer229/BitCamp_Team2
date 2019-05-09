@@ -8,6 +8,12 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.TravelReviewDao;
 import kr.or.bit.dto.TravelReview;
 
+/*
+작업일자 : 2019-05-09
+작업자 :   이힘찬
+작업내용 : TravelReviewContentService 작성
+*/
+
 public class TravelReviewContentService implements Action{
 
 	@Override
