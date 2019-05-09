@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.ChecklistContentView;
 import kr.or.bit.service.ChecklistDelete;
 import kr.or.bit.service.ChecklistInsert;
 import kr.or.bit.service.ChecklistRead;
@@ -82,6 +83,14 @@ public class ChecklistController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				System.out.println("updateok업무 에러");
+				e.printStackTrace();
+			}
+    	}else if(url_Command.equals("/CheckContent.Checklist")) {
+    		action = new ChecklistContentView();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("컨텐츠 업무 에러");
 				e.printStackTrace();
 			}
     	}

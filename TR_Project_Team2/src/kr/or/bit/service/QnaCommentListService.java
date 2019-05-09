@@ -5,11 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnaDao;
 import kr.or.bit.dto.Qna_Comments;
-import net.sf.json.JSONArray;
+
 
 public class QnaCommentListService implements Action{
 
