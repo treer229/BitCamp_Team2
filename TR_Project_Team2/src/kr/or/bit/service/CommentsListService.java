@@ -26,7 +26,7 @@ public class CommentsListService implements Action {
 
 		List<Notice_Comments> notilist = notidao.noticeCommentList(notice_num);
 		
-		
+		System.out.println("노티리스트"+notilist);
 		request.setAttribute("notilist", notilist);
 		ActionForward forward = new ActionForward();
 		
