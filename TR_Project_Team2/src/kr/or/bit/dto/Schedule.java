@@ -7,77 +7,77 @@ public class Schedule {
     작업내용 : 스케줄 dto 작성
     */
 	
-	private int Schedule_NUM;
-	private int DELETEOK;
-	private int COMPLETEOK;
-	private String ID;
-	private String Schedule_TITLE;
-	private String Content;
-	private String Color;
-	private String Schedule_START;
-	private String Schedule_END;
+	private int schedule_num;
+	private int deleteok;
+	private int completeok;
+	private String id;
+	private String schedule_title;
+	private String content;
+	private String color;
+	private String schedule_start;
+	private String schedule_end;
 	
-	public int getSchedule_NUM() {
-		return Schedule_NUM;
+	public int getSchedule_num() {
+		return schedule_num;
 	}
-	public void setSchedule_NUM(int schedule_NUM) {
-		Schedule_NUM = schedule_NUM;
+	public void setSchedule_num(int schedule_num) {
+		this.schedule_num = schedule_num;
 	}
-	public int getDELETEOK() {
-		return DELETEOK;
+	public int getDeleteok() {
+		return deleteok;
 	}
-	public void setDELETEOK(int dELETEOK) {
-		DELETEOK = dELETEOK;
+	public void setDeleteok(int deleteok) {
+		this.deleteok = deleteok;
 	}
-	public int getCOMPLETEOK() {
-		return COMPLETEOK;
+	public int getCompleteok() {
+		return completeok;
 	}
-	public void setCOMPLETEOK(int cOMPLETEOK) {
-		COMPLETEOK = cOMPLETEOK;
+	public void setCompleteok(int completeok) {
+		this.completeok = completeok;
 	}
-	public String getID() {
-		return ID;
+	public String getId() {
+		return id;
 	}
-	public void setID(String iD) {
-		ID = iD;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getSchedule_TITLE() {
-		return Schedule_TITLE;
+	public String getSchedule_title() {
+		return schedule_title;
 	}
-	public void setSchedule_TITLE(String schedule_TITLE) {
-		Schedule_TITLE = schedule_TITLE;
+	public void setSchedule_title(String schedule_title) {
+		this.schedule_title = schedule_title;
 	}
 	public String getContent() {
-		return Content;
+		return content;
 	}
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
 	public String getColor() {
-		return Color;
+		return color;
 	}
 	public void setColor(String color) {
-		Color = color;
+		this.color = color;
 	}
-	public String getSchedule_START() {
-		return Schedule_START;
+	public String getSchedule_start() {
+		return schedule_start;
 	}
-	public void setSchedule_START(String schedule_START) {
-		Schedule_START = schedule_START;
+	public void setSchedule_start(String schedule_start) {
+		this.schedule_start = schedule_start;
 	}
-	public String getSchedule_END() {
-		return Schedule_END;
+	public String getSchedule_end() {
+		return schedule_end;
 	}
-	public void setSchedule_END(String schedule_END) {
-		Schedule_END = schedule_END;
+	public void setSchedule_end(String schedule_end) {
+		this.schedule_end = schedule_end;
 	}
-	
 	@Override
 	public String toString() {
-		return "Schedule [Schedule_NUM=" + Schedule_NUM + ", DELETEOK=" + DELETEOK + ", COMPLETEOK=" + COMPLETEOK
-				+ ", ID=" + ID + ", Schedule_TITLE=" + Schedule_TITLE + ", Content=" + Content + ", Color=" + Color
-				+ ", Schedule_START=" + Schedule_START + ", Schedule_END=" + Schedule_END + "]";
+		return "Schedule [schedule_num=" + schedule_num + ", deleteok=" + deleteok + ", completeok=" + completeok
+				+ ", id=" + id + ", schedule_title=" + schedule_title + ", content=" + content + ", color=" + color
+				+ ", schedule_start=" + schedule_start + ", schedule_end=" + schedule_end + "]";
 	}
+	
 	
 	
 	
