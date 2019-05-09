@@ -35,12 +35,12 @@ public class ChecklistDAO {
 		}
 	}
 	
-	public List<Checklist> getCheckList(String id) {
+	public List<Checklist> getCheckListAll(String id) {
 		List<Checklist> checklist = new ArrayList<Checklist>();
 		
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from CHECKLIST where id = ? ";
+			String sql = "select * from CHECKLIST where id = ? ORDER BY CL_NUM DESC ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -62,6 +62,35 @@ public class ChecklistDAO {
 			if(conn!=null) try{conn.close();}catch (Exception e){System.out.println("CHACKLIST conn DB서버 닫기 실패"); System.out.println(e.getMessage());}
 	}
 		return checklist;
+	}
+	public Checklist getCheckList(int cl_num) { //단일검색
+		Checklist check = null;
+		try {
+			conn = ds.getConnection();
+			String sql = "select * from CHECKLIST where CL_NUM = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cl_num);
+			rs = pstmt.executeQuery();
+			System.out.println("체크리스트 단일검색 쿼리문 실행 완료");
+			
+			if(rs.next()) {
+			check = new Checklist();
+				check.setCl_num(rs.getInt(1));
+				check.setId(rs.getString(2));
+				check.setCl_title(rs.getString(3));
+				check.setColor(rs.getString(4));
+			}else {
+				System.out.println("정보 담기 실패");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("체크리스트 출력 에러 : " + e.getMessage());
+		}finally {
+			if(rs!=null) try {rs.close();}catch(Exception e) {System.out.println("CHACKLIST rs DB서버 닫기 실패"); System.out.println(e.getMessage());}
+    	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){System.out.println("CHACKLIST pstmt DB서버 닫기 실패"); System.out.println(e.getMessage());}
+			if(conn!=null) try{conn.close();}catch (Exception e){System.out.println("CHACKLIST conn DB서버 닫기 실패"); System.out.println(e.getMessage());}
+	}
+		return check;
 	}
 	public List<Checklistcontent> getChecklistContent(Checklist list) {
 		List<Checklistcontent> contentlist = new ArrayList<Checklistcontent>();
@@ -206,15 +235,17 @@ public class ChecklistDAO {
 	
 	 
 
-	public int getUpdateChecklist(String id) {
+	public int getUpdateChecklist(Checklist checklist) {
 		int row = 0;
 		try {
 			conn = ds.getConnection();
-			String sql = "update CHECKLIST set CL_TITLE=?, COLOR=? where id = ?";
+			String sql = "update CHECKLIST set CL_TITLE=?, COLOR=? where CL_NUM = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, checklist.getCl_title());
+			pstmt.setString(2, checklist.getColor());
+			pstmt.setInt(3, checklist.getCl_num());
 			row = pstmt.executeUpdate();
-			
+			System.out.println("업데이트 준비완료");
 			if(row > 0 ) { 
 				System.out.println("체크리스트 업데이트 성공");
 			}else {

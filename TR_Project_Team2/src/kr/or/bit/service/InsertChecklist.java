@@ -8,12 +8,12 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.ChecklistDAO;
 import kr.or.bit.dto.Checklist;
 
-public class Checklistservice implements Action {
+public class InsertChecklist implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter("id"); //추후 세션 아이디 받아와야함
 		String title = request.getParameter("title");
 		String color = request.getParameter("color");
 		
@@ -27,9 +27,10 @@ public class Checklistservice implements Action {
 		list.setCl_title(title);
 		list.setColor(color);
 		
+		
 		checkdao.getInsertChecklist(list);
 		ActionForward forward = new ActionForward();
-		forward.setPath("/WEB-INF/Page/test.jsp");
+		forward.setPath("/read.Checklist");
 		
 		return forward;
 	}
