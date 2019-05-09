@@ -11,6 +11,12 @@ import kr.or.bit.dao.TravelReviewDao;
 import kr.or.bit.dto.TravelReview_Comments;
 import net.sf.json.JSONArray;
 
+/*
+작업일자 : 2019-05-09
+작업자 :   이힘찬
+작업내용 : TravelReviewReplyListService 작성
+*/
+
 public class TravelReviewReplyListService implements Action{
 
 	@Override
