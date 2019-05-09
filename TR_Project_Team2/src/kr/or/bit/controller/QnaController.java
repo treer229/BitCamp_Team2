@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+<<<<<<< HEAD
+=======
 import kr.or.bit.service.QnaCommentDeleteService;
 import kr.or.bit.service.QnaCommentListService;
 import kr.or.bit.service.QnaCommentService;
@@ -20,6 +22,7 @@ import kr.or.bit.service.QnaEditOkService;
 import kr.or.bit.service.QnaListService;
 import kr.or.bit.service.QnaRewriteOkService;
 import kr.or.bit.service.QnaWriteService;
+>>>>>>> origin/CptNO
 
 
 @WebServlet("*.Qna")
@@ -49,7 +52,7 @@ public class QnaController extends HttpServlet {
         // 글 작성 화면 요청이 들어왔을때, ok  (화면처리)
     	if(url_Command.equals("/QnaWrite.Qna")) {// 업무처리
     	   forward.setRedirect(false);
-    	   forward.setPath("/board/board_write.jsp");
+    	   forward.setPath("");
     	   System.out.println("if확인");
 
     	}  
@@ -58,12 +61,6 @@ public class QnaController extends HttpServlet {
     	else if(url_Command.equals("/MemoList.do")) {
     		forward = new ActionForward();
     //		forward.setPath(/*여기에 주소를 넣어주세요*/);
-    		action=new QnaWriteService();
-    		try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
     	}
     	
     	  // 글 리스트 보여주기, ok
