@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import kr.or.bit.dto.TravelReview_Comments;
+import kr.or.bit.dto.Notice_Comments;
 import kr.or.bit.dto.TravelReview;
 
 /*
@@ -24,31 +25,21 @@ import kr.or.bit.dto.TravelReview;
 
 public class TravelReviewDao {
 	
-	// DB연결 ...
-	// method 공통 사용 ....
-	// 초기자 { } static 초기자 : static{ }
-	static DataSource ds;
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
+	DataSource ds;
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 
-	static {
-		InitialContext ctx;
+	public TravelReviewDao() {
 		try {
-			/*
-			 * Context context = new InitialContext(); DataSource datasource =
-			 * (DataSource)context.lookup("java:comp/env/jdbc/oracle"); conn =
-			 * datasource.getConnection();
-			 */
-			
-			ctx = new InitialContext();
-			Context envCtx = (Context) ctx.lookup("java:comp/env");
-			ds = (DataSource) envCtx.lookup("/jdbc/oracle");
-			System.out.println("DataSource 객체 생성 성공 !");
-		} catch (NamingException e) {
-			System.out.println("lookup Fail : " + e.getMessage());
+			Context context = new InitialContext(); // 이름기반 검색
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+
+		} catch (Exception e) {
+			System.out.println("QnaCommentsDao" + e.getMessage());
 		}
 	}
+
 
 	// jspboard (CRUD) 구현 하는 함수
 	// select > 객체(DTO) 담는다 > return board ,
@@ -521,8 +512,9 @@ public class TravelReviewDao {
 	}
 	
 	// **reply 덧글 리스트
-	public List<TravelReview_Comments> commentlist(int tr_num) throws SQLException {
-
+	public List<TravelReview_Comments> commentlist(int tr_num) {
+		List<TravelReview_Comments> trcommentlist = new ArrayList<TravelReview_Comments>();
+		
 		try {
 			conn = ds.getConnection();
 			String reply_sql = "select * from TravelReview_Comments where tr_num=? order by comments_num desc";
@@ -534,26 +526,26 @@ public class TravelReviewDao {
 
 			ArrayList<TravelReview_Comments> list = new ArrayList<TravelReview_Comments>();
 			while (rs.next()) {
-				int comments_num = Integer.parseInt(rs.getString("comments_num"));
-				String id = rs.getString("id");
-				String comments_content = rs.getString("comments_content");
-				String comments_date = rs.getString("comments_date");
-				int num = Integer.parseInt(rs.getString("tr_num"));
+				String id = rs.getString("ID");
+				String content = rs.getString("CONTENT");
+				String create_date = rs.getString("CREATED_DATE");
 
-				//(int tr_num, int tr_reply_num, String id, String tr_reply_title, String tr_reply_content)
-				TravelReview_Comments commentDTO = new TravelReview_Comments(comments_num,id,num,comments_content,comments_date);
+				TravelReview_Comments trcomments = new TravelReview_Comments();
+				trcomments.setId(id);
+				trcomments.setComments_content(content);
+				trcomments.setComments_date(create_date);
 
-				list.add(commentDTO);
+				trcommentlist.add(trcomments);
 			}
-			return list;
-		} finally {
-			if (pstmt != null)
-				pstmt.close();
-			if (rs != null)
-				rs.close();
-			if (conn != null)
-				conn.close();
+		} catch (Exception e) {
+			e.getStackTrace();
+		} 
+		finally {
+			if (rs != null) try {rs.close();} catch (Exception e) {}
+			if (pstmt != null) try {pstmt.close();} catch (Exception e) {}
+			if (conn != null) try {conn.close();} catch (Exception e) {}
 		}
+		return trcommentlist;
 	}
 
 	// 덧글 삭제하기 (덧글 번호(키) , 비번)

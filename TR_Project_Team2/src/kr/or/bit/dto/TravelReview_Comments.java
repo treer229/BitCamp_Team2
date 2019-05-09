@@ -11,16 +11,6 @@ public class TravelReview_Comments {
 	private String comments_content;
 	private String comments_date;
 	
-	
-	
-	public TravelReview_Comments(int comments_num, String id, int tr_num, String comments_content, String comments_date) {
-		
-		this.comments_num = comments_num;
-		this.id = id;
-		this.tr_num = tr_num;
-		this.comments_content = comments_content;
-		this.comments_date = comments_date;
-	}
 
 
 
