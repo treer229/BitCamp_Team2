@@ -11,35 +11,36 @@ public class Notice {
 	private String notice_content;
 	private String date;
 	private int comment_count;
+	
 	public int getnotice_num() {
 		return notice_num;
 	}
 	public void setnotice_num(int notice_num) {
-		notice_num = notice_num;
+		this.notice_num = notice_num;
 	}
 	public int getnotice_title() {
 		return notice_title;
 	}
 	public void setnotice_title(int notice_title) {
-		notice_title = notice_title;
+		this.notice_title = notice_title;
 	}
 	public String getnotice_content() {
 		return notice_content;
 	}
 	public void setnotice_content(String notice_content) {
-		notice_content = notice_content;
+		this.notice_content = notice_content;
 	}
 	public String getdate() {
 		return date;
 	}
 	public void setdate(String date) {
-		date = date;
+		this.date = date;
 	}
 	public int getcomment_count() {
 		return comment_count;
 	}
 	public void setcomment_count(int comment_count) {
-		comment_count = comment_count;
+		this.comment_count = comment_count;
 	}
 	@Override
 	public String toString() {

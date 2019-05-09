@@ -14,7 +14,11 @@ import javax.sql.DataSource;
 import kr.or.bit.dto.Notice_Comments;
 
 public class NoticeCommentsDao {
-
+	/*
+	작업일자 : 2019-05-08
+	작업자 :    권순조
+	작업내용 : notice DTO 작성
+	*/
 	DataSource ds;
 	Connection conn = null;
 	PreparedStatement pstmt = null;
@@ -91,7 +95,7 @@ public class NoticeCommentsDao {
 		Connection conn = null;
 		ResultSet rs = null;
 		try{
-			String sql = "update NOTICE_COMMENTS SET CONTENT=? WHERE COMMENT_NUM=?";
+			String sql = "UPDATE NOTICE_COMMENTS SET CONTENT=? WHERE COMMENT_NUM=?";
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, content);
