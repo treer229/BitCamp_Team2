@@ -10,16 +10,29 @@ public class Qna {
 	private int qna_num;				//묻고답하기_글번호
 	private String id;					//아이디
 	private String qna_title;			//묻고답하기_제목
-	private String qna_content;			//내용
+	private String content;				//내용
 	private int views;					//조회수
-	private String qna_created_date;	//작성일
-	private int qna_comment_count;		//댓글수
+	private String created_date;	//작성일
+	private int comment_count;		//댓글수
 	
 	//계층형
 	private int refer;	//참조
 	private int depth;	//들여쓰기
 	private int step;	//글의 순서
-	
+	public Qna(int qna_num, String id, String qna_title, String content, int views, String created_date,
+			int comment_count, int refer, int depth, int step) {
+		// TODO Auto-generated constructor stub
+		this.qna_num=qna_num;
+		this.id=id;
+		this.qna_title=qna_title;
+		this.content=content;
+		this.views=views;
+		this.created_date=created_date;
+		this.comment_count=comment_count;
+		this.refer=refer;
+		this.depth=depth;
+		this.step=step;
+	}
 	public int getQna_num() {
 		return qna_num;
 	}
@@ -38,11 +51,11 @@ public class Qna {
 	public void setQna_title(String qna_title) {
 		this.qna_title = qna_title;
 	}
-	public String getQna_content() {
-		return qna_content;
+	public String getContent() {
+		return content;
 	}
-	public void setQna_content(String qna_content) {
-		this.qna_content = qna_content;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getViews() {
 		return views;
@@ -50,26 +63,43 @@ public class Qna {
 	public void setViews(int views) {
 		this.views = views;
 	}
-	public String getQna_created_date() {
-		return qna_created_date;
+	public String getCreated_date() {
+		return created_date;
 	}
-	public void setQna_created_date(String qna_created_date) {
-		this.qna_created_date = qna_created_date;
+	public void setCreated_date(String created_date) {
+		this.created_date = created_date;
 	}
-	public int getQna_comment_count() {
-		return qna_comment_count;
+	public int getComment_count() {
+		return comment_count;
 	}
-	public void setQna_comment_count(int qna_comment_count) {
-		this.qna_comment_count = qna_comment_count;
+	public void setComment_count(int comment_count) {
+		this.comment_count = comment_count;
+	}
+	public int getRefer() {
+		return refer;
+	}
+	public void setRefer(int refer) {
+		this.refer = refer;
+	}
+	public int getDepth() {
+		return depth;
+	}
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+	public int getStep() {
+		return step;
+	}
+	public void setStep(int step) {
+		this.step = step;
 	}
 	@Override
 	public String toString() {
-		return "Qna [qna_num=" + qna_num + ", id=" + id + ", qna_title=" + qna_title + ", qna_content=" + qna_content
-				+ ", views=" + views + ", qna_created_date=" + qna_created_date + ", qna_comment_count="
-				+ qna_comment_count + "]";
+		return "Qna [qna_num=" + qna_num + ", id=" + id + ", qna_title=" + qna_title + ", content=" + content
+				+ ", views=" + views + ", created_date=" + created_date + ", comment_count=" + comment_count
+				+ ", refer=" + refer + ", depth=" + depth + ", step=" + step + "]";
 	}
 	
-
 	
 	
 }
