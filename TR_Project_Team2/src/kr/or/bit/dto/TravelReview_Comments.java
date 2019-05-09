@@ -1,13 +1,10 @@
 package kr.or.bit.dto;
-
-public class Tr_Comments {
-	
-	/*
-    작업일자 : 2019-05-08
-    작업자 :    권순조
-    작업내용 : 여행리뷰 댓글 dto 작성
-    */
-	
+/*
+작업일자 : 2019-05-08
+작업자 :    권순조
+작업내용 : 여행리뷰 댓글 dto 작성
+*/
+public class TravelReview_Comments {
 	private int comments_num;
 	private String id;
 	private int tr_num;
@@ -16,6 +13,17 @@ public class Tr_Comments {
 	
 	
 	
+	public TravelReview_Comments(int comments_num, String id, int tr_num, String comments_content, String comments_date) {
+		
+		this.comments_num = comments_num;
+		this.id = id;
+		this.tr_num = tr_num;
+		this.comments_content = comments_content;
+		this.comments_date = comments_date;
+	}
+
+
+
 	public int getComments_num() {
 		return comments_num;
 	}
@@ -26,13 +34,12 @@ public class Tr_Comments {
 		this.comments_num = comments_num;
 	}
 
-
+	
 
 	public String getId() {
 		return id;
 	}
-
-
+	
 
 	public void setId(String id) {
 		this.id = id;

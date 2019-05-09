@@ -1,6 +1,6 @@
 package kr.or.bit.dto;
 
-public class Qna_Comments {
+public class QnaComments {
 	
 	/*
     작업일자 : 2019-05-08
