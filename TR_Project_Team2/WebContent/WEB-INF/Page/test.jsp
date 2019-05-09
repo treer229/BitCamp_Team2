@@ -89,5 +89,4 @@ $(function(){
 	</c:forEach>
 	</tbody>
 </table>
-<a href = "servicetest.html">작성하기</a>
 </div>
