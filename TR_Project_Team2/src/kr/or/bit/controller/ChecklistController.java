@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.DeleteChecklist;
-import kr.or.bit.service.InsertChecklist;
-import kr.or.bit.service.ReadChecklist;
-import kr.or.bit.service.UpdateChecklist;
-import kr.or.bit.service.UpdateOkChecklist;
+import kr.or.bit.service.ChecklistDelete;
+import kr.or.bit.service.ChecklistInsert;
+import kr.or.bit.service.ChecklistRead;
+import kr.or.bit.service.ChecklistUpdate;
+import kr.or.bit.service.ChecklistUpdateOk;
 
 
 @WebServlet("*.Checklist")
@@ -45,7 +45,7 @@ public class ChecklistController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/write.Checklist")) {// 업무처리
-      	  	action = new InsertChecklist();
+      	  	action = new ChecklistInsert();
       	  	try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -53,7 +53,7 @@ public class ChecklistController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}else if(url_Command.equals("/read.Checklist")) {
-    		action = new ReadChecklist();
+    		action = new ChecklistRead();
       	  	try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -61,7 +61,7 @@ public class ChecklistController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}else if(url_Command.equals("/del.Checklist")) {
-    		action = new DeleteChecklist();
+    		action = new ChecklistDelete();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -69,7 +69,7 @@ public class ChecklistController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}else if(url_Command.equals("/edit.Checklist")) {
-    		action = new UpdateChecklist();
+    		action = new ChecklistUpdate();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -77,7 +77,7 @@ public class ChecklistController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}else if(url_Command.equals("/updateok.Checklist")) {
-    		action = new UpdateOkChecklist();
+    		action = new ChecklistUpdateOk();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
