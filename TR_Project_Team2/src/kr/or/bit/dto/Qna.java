@@ -19,6 +19,10 @@ public class Qna {
 	private int refer;	//참조
 	private int depth;	//들여쓰기
 	private int step;	//글의 순서
+	public Qna() {
+		
+	}
+	
 	public Qna(int qna_num, String id, String qna_title, String content, int views, String created_date,
 			int comment_count, int refer, int depth, int step) {
 		// TODO Auto-generated constructor stub
