@@ -22,11 +22,11 @@ public class ScheduleListAll implements Action {
 		Member memeber = new Member();
 		
 		if(request.getParameter("id") == null) {
-		List<Schedule> list = dao.getScheduleList("admin");
+		List<Schedule> list = dao.getScheduleListAll("admin");
 		request.setAttribute("list", list);
 		}else {
 		String id = request.getParameter("id");
-		List<Schedule> list = dao.getScheduleList(id);
+		List<Schedule> list = dao.getScheduleListAll(id);
 		request.setAttribute("list", list);
 		}
 		

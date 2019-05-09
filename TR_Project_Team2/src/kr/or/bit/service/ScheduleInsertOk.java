@@ -8,7 +8,7 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.ScheduleDAO;
 import kr.or.bit.dto.Schedule;
 
-public class InsertScheduleOk implements Action {
+public class ScheduleInsertOk implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
