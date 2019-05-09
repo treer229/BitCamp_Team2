@@ -7,41 +7,63 @@ public class Checklist {
     작업내용 : 체크리스트 dto 작성
     */
 	
-	private int CL_NUM;
-	private String ID;
-	private String CL_TITLE;
-	private String COLOR;
+	private int cl_num;
+	private String id;
+	private String cl_title;
+	private String color;
 	
 	
-	public int getCL_NUM() {
-		return CL_NUM;
+	public int getCl_num() {
+		return cl_num;
 	}
-	public void setCL_NUM(int cL_NUM) {
-		CL_NUM = cL_NUM;
+
+
+
+	public void setCl_num(int cl_num) {
+		this.cl_num = cl_num;
 	}
-	public String getID() {
-		return ID;
+
+
+
+	public String getId() {
+		return id;
 	}
-	public void setID(String iD) {
-		ID = iD;
+
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getCL_TITLE() {
-		return CL_TITLE;
+
+
+
+	public String getCl_title() {
+		return cl_title;
 	}
-	public void setCL_TITLE(String cL_TITLE) {
-		CL_TITLE = cL_TITLE;
+
+
+
+	public void setCl_title(String cl_title) {
+		this.cl_title = cl_title;
 	}
-	public String getCOLOR() {
-		return COLOR;
+
+
+
+	public String getColor() {
+		return color;
 	}
-	public void setCOLOR(String cOLOR) {
-		COLOR = cOLOR;
+
+
+
+	public void setColor(String color) {
+		this.color = color;
 	}
+
+
+
 	@Override
 	public String toString() {
-		return "Checklist [CL_NUM=" + CL_NUM + ", ID=" + ID + ", CL_TITLE=" + CL_TITLE + ", COLOR=" + COLOR + "]";
+		return "Checklist [CL_NUM=" + cl_num + ", id=" + id + ", CL_TITLE=" + cl_title + ", COLOR=" + color + "]";
 	}
-	
-	
 	
 }
