@@ -3,6 +3,8 @@ package kr.or.bit.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -31,26 +33,29 @@ public class ScheduleDAO {
 			System.out.println("look yp Fail"+ e.getMessage());
 		}
 	}
-	public Schedule getScheduleList(Member member) {
-		Schedule schedule = new Schedule();
+	public List<Schedule> getScheduleList(String id) {
+		
+		List<Schedule> list = new ArrayList<Schedule>();
 		try {
 			conn = ds.getConnection();
-			String sql = "select * from SCHEDULE where id = ?";
+			String sql = "select * from SCHEDULE where id = ? ORDER BY SCHEDULE_NUM DESC";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getId());
+			pstmt.setString(1, id);
 			
 			rs = pstmt.executeQuery();
 			System.out.println("스케줄 불러오는 쿼리문 실행 완료");
 			while(rs.next()) {
-				schedule.setSchedule_NUM(rs.getInt(1));
-				schedule.setID(rs.getString(2));
-				schedule.setSchedule_TITLE(rs.getString(3));
+				Schedule schedule = new Schedule();
+				schedule.setSchedule_num(rs.getInt(1));
+				schedule.setId(rs.getString(2));
+				schedule.setSchedule_title(rs.getString(3));
 				schedule.setContent(rs.getString(4));
-				schedule.setSchedule_START(rs.getString(5));
-				schedule.setSchedule_END(rs.getString(6));
+				schedule.setSchedule_start(rs.getString(5));
+				schedule.setSchedule_end(rs.getString(6));
 				schedule.setColor(rs.getString(7));
-				schedule.setDELETEOK(rs.getInt(8));
-				schedule.setCOMPLETEOK(rs.getInt(9));
+				schedule.setDeleteok(rs.getInt(8));
+				schedule.setCompleteok(rs.getInt(9));
+				list.add(schedule);
 			}
 			System.out.println("스케줄 쿼리 담기 완료");
 		} catch (Exception e) {
@@ -61,26 +66,40 @@ public class ScheduleDAO {
     	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){System.out.println("스케줄 pstmt DB서버 닫기 실패"); System.out.println(e.getMessage());}
 			if(conn!=null) try{conn.close();}catch (Exception e){System.out.println("스케줄 conn DB서버 닫기 실패"); System.out.println(e.getMessage());}
 	}
-		return schedule;
+		return list;
 	}
 	public int getInsertSchedule(Schedule schedule) {
+		int num =0;
 		int row = 0;
-		try {
+		String sql ="";
+		
+		
+		try{
 			conn = ds.getConnection();
-			String sql = "insert into SCHEDULE(SCHEDULE_NUM,ID,SCHEDULE_TITLE,CONTENT,SCHEDULE_START,SCHEDULE_END,COLOR,DELETEOK,COMPLETEOK) values(?,?,?,?,?,?,?,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, schedule.getSchedule_NUM());
-			pstmt.setString(2, schedule.getID());
-			pstmt.setString(3, schedule.getSchedule_TITLE());
-			pstmt.setString(4, schedule.getContent());
-			pstmt.setString(5, schedule.getSchedule_START());
-			pstmt.setString(6, schedule.getSchedule_END());
-			pstmt.setString(7, schedule.getColor());
-			pstmt.setInt(8, schedule.getDELETEOK());
-			pstmt.setInt(9, schedule.getCOMPLETEOK());
+			pstmt= conn.prepareStatement("select max(SCHEDULE_NUM) from SCHEDULE");
+			rs = pstmt.executeQuery();
+		
 			
+			if(rs.next()) {
+				num =rs.getInt(1)+1;
+			}else {
+				num=1;
+			}
+			conn = ds.getConnection();
+			sql = "insert into SCHEDULE(SCHEDULE_NUM,ID,SCHEDULE_TITLE,CONTENT,SCHEDULE_START,SCHEDULE_END,COLOR,DELETEOK,COMPLETEOK) values(?,?,?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, schedule.getId());
+			pstmt.setString(3, schedule.getSchedule_title());
+			pstmt.setString(4, schedule.getContent());
+			pstmt.setString(5, schedule.getSchedule_start());
+			pstmt.setString(6, schedule.getSchedule_end());
+			pstmt.setString(7, schedule.getColor());
+			pstmt.setInt(8, schedule.getDeleteok());
+			pstmt.setInt(9, schedule.getCompleteok());
 			
 			row = pstmt.executeUpdate();
+			System.out.println("스케줄 객체 담기 완료");
 			
 			if(row > 0) {
 				System.out.println("추가 된 열의 수 : " + row);
@@ -107,14 +126,14 @@ public class ScheduleDAO {
 			String sql = "update SCHEDULE set SCHEDULE_TITLE=? , CONTENT=? , SCHEDULE_START=? , SCHEDULE_END=? , COLOR,DELETEOK=? ,COMPLETEOK=? where SCHEDULE_NUM = ?" ;
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, schedule.getSchedule_TITLE());
+			pstmt.setString(1, schedule.getSchedule_title());
 			pstmt.setString(2, schedule.getContent());
-			pstmt.setString(3, schedule.getSchedule_START());
-			pstmt.setString(4, schedule.getSchedule_END());
+			pstmt.setString(3, schedule.getSchedule_start());
+			pstmt.setString(4, schedule.getSchedule_end());
 			pstmt.setString(5, schedule.getColor());
-			pstmt.setInt(6, schedule.getDELETEOK());
-			pstmt.setInt(7, schedule.getCOMPLETEOK());
-			pstmt.setInt(8, schedule.getSchedule_NUM());
+			pstmt.setInt(6, schedule.getDeleteok());
+			pstmt.setInt(7, schedule.getCompleteok());
+			pstmt.setInt(8, schedule.getSchedule_num());
 			
 			row = pstmt.executeUpdate();
 			
@@ -136,13 +155,13 @@ public class ScheduleDAO {
 		
 	}
 	
-	public int getDeleteSchedule(String id) {
+	public int getDeleteSchedule(int SCHEDULE_NUM) {
 		int row = 0;
 		try {
 			conn = ds.getConnection();
-			String sql = "delete from SCHEDULE where id = ?";
+			String sql = "delete from SCHEDULE where SCHEDULE_NUM = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, SCHEDULE_NUM);
 			
 			row = pstmt.executeUpdate();
 			if(row > 0) {

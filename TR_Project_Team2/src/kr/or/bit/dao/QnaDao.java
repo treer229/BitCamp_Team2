@@ -56,7 +56,7 @@ public class QnaDao {
 	public int writeok(Qna qna) throws Exception {
 		try {
 			conn = ds.getConnection();
-			String sql = "insert into qna(qna_num,id,qna_title,content,views,created_date,comment_count,ref) values("
+			String sql = "insert into qna(qna_num,id,qna_title,content,views,created_date,comment_count,refer) values("
 					+ " qna_seq.nextval,?,?,?,0,sysdate,0,?)";
 			pstmt = conn.prepareStatement(sql);
 
@@ -347,7 +347,7 @@ public class QnaDao {
 		//4.case : 게시판 컬럼 (delok) : 1(기본값)  -> 삭제 =>0 
 		//5.case : 네이버 원본글 삭제 -> 나머지 글들은 텍스트 형태(원본글삭제 표시)
 		//6.case : 덧글이 있는 경우 같이 삭제
-		public int deleteOk(String qna_num , String id) throws SQLException{
+		public int deleteOk(int qna_num , String id) throws SQLException{
 		
 			try{
 				conn = ds.getConnection();
@@ -359,7 +359,7 @@ public class QnaDao {
 				String del_board_sql="delete from qna where qna_num=?";
 							
 				pstmt = conn.prepareStatement(sel_pwd_sql);
-				pstmt.setString(1, qna_num);
+				pstmt.setInt(1, qna_num);
 				rs =pstmt.executeQuery();
 				if(rs.next()){
 					String dbpwd = rs.getString("id");
@@ -371,12 +371,12 @@ public class QnaDao {
 						
 							//덧글 삭제
 							pstmt = conn.prepareStatement(del_reply_sql);
-							pstmt.setString(1, qna_num);
+							pstmt.setInt(1, qna_num);
 							pstmt.executeUpdate();
 							
 							//게시글 삭제
 							pstmt = conn.prepareStatement(del_board_sql);
-							pstmt.setString(1, qna_num);
+							pstmt.setInt(1, qna_num);
 							int row =pstmt.executeUpdate();
 							
 							if(row > 0){
@@ -400,8 +400,9 @@ public class QnaDao {
 			}
 		}
 		//게시물 편집하기 상세보기(글번호)
-		public Qna getEditContent(String qna_num) throws SQLException{
-		   return this.getContent(Integer.parseInt(qna_num));
+		public Qna getEditContent(int qna_num) throws SQLException{
+//		   return this.getContent(Integer.parseInt(qna_num));
+			return this.getContent(qna_num);
 		}
 		//게시글 수정하기
 		public int boardedit(HttpServletRequest qna) throws SQLException{
@@ -443,12 +444,12 @@ public class QnaDao {
 		}
 		
 		//게시물 조회수 증가하기
-		public boolean getReadnum(String qna_num) throws SQLException{
+		public boolean getReadnum(int qna_num) throws SQLException{
 			 try{
 					conn = ds.getConnection();
 					String sql ="update qna set views=views+1 where qna_num=?";
 				  	pstmt = conn.prepareStatement(sql);
-					pstmt.setString(1, qna_num);
+					pstmt.setInt(1, qna_num);
 					int row =pstmt.executeUpdate();
 					
 					if(row > 0){
@@ -496,14 +497,14 @@ public class QnaDao {
 	
 	
 	//**reply 덧글 리스트
-	public List<Qna_Comments> commentList(String qna_num) throws SQLException{
+	public List<Qna_Comments> commentList(int qna_num) throws SQLException{
 
 		  try{
 				conn = ds.getConnection();
 				String reply_sql ="select * from Qna_Comments where qna_num=? order by comments_num desc";
 				
 				pstmt = conn.prepareStatement(reply_sql);
-				pstmt.setString(1, qna_num);
+				pstmt.setInt(1, qna_num);
 			
 				 rs =pstmt.executeQuery();
 			    

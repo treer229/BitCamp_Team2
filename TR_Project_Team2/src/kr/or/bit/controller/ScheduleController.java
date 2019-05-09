@@ -1,6 +1,8 @@
 package kr.or.bit.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.InsertScheduleOk;
+import kr.or.bit.service.ScheduleListAll;
 
 
 @WebServlet("*.Schedule")
@@ -37,16 +41,32 @@ public class ScheduleController extends HttpServlet {
     	System.out.println("url_Command"+url_Command+"컨트롤러 check");
     	
     	
-    	if(url_Command.equals("/Register.do")) {// 업무처리
-      	  
-    	   System.out.println("if확인");
-			
-			 
-
-    	}  else if(url_Command.equals("/MemoList.do")) {
-    		forward = new ActionForward();
-    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
-    	}
+    	if(url_Command.equals("/list.Schedule")) {// 업무처리
+	      	 action = new ScheduleListAll();
+	      	 try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("스케줄리스트 업무 에러");
+				e.printStackTrace();
+			}
+		}else if(url_Command.equals("/insert.Schedule")) {
+			forward = new ActionForward();
+			forward.setPath("/WEB-INF/Page/insertschedule.jsp");
+		}else if(url_Command.equals("/insertOk.Schedule")) {
+			action = new InsertScheduleOk();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("스케줄추가 업무 에러");
+				e.printStackTrace();
+			}
+		}
+    	
+    	
+    	if(forward != null) {
+            RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
+                rd.forward(request, response);
+            }
     }
 		
 
