@@ -412,8 +412,8 @@ public class TravelReviewDao {
 	}
 
 	// 게시물 편집하기 상세보기(글번호)
-	public TravelReview getEditContent(String tr_num) throws SQLException {
-		return this.getContent(Integer.parseInt(tr_num));
+	public TravelReview getEditContent(int tr_num) throws SQLException {
+		return this.getContent(tr_num);
 	}
 
 	// 게시글 수정하기
