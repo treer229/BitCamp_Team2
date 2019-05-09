@@ -65,7 +65,7 @@ $(function(){
 	});
 
 </script>
-<%-- <div id = "listmain">
+<div id = "listmain">
 <table border="1">
 	<thead><th>글번호 </th><th>글 제목</th><th>색상</th><th>아이디</th><th>수정</th><th>삭제</th></thead>
 	<tbody>
@@ -88,14 +88,5 @@ $(function(){
 	</tr>
 	</c:forEach>
 	</tbody>
-</table> </div>
---%>
-
-<table>
-	<tr>
-	<th>아뒤 </th><th>글</th><th>날짜</th>
-	</tr>
-	<c:forEach var ="i" items="${notilist}">
-	<tr><td>${i.id }</td><td>${i.comments_content }</td><td>${i.comments_date }</td></tr>
-	</c:forEach>
 </table>
+</div>
