@@ -265,7 +265,7 @@ public class QnaDao {
 			    }
 		}	
 	//답글 쓰기 처리
-	public int reWriteOk(Qna qna) throws SQLException{
+	public int replyWriteOk(Qna qna) throws SQLException{
 			try{
 				conn = ds.getConnection();
 				//사용자 입력값 처리
@@ -405,7 +405,7 @@ public class QnaDao {
 			return this.getContent(qna_num);
 		}
 		//게시글 수정하기
-		public int boardedit(HttpServletRequest qna) throws SQLException{
+		public int boardEdit(HttpServletRequest qna) throws SQLException{
 			try{
 				
 				//사용자 수정값 받아오기
@@ -467,7 +467,7 @@ public class QnaDao {
 		}	
 	//**reply 덧글 입력하기
 	//어느 게시글의 덧글이냐 : 현재 보고있는 글의 글번호
-	public int commentWrite(int qna_num , String comments_num, 
+	public int commentWrite(int qna_num , int comments_num, 
 			           String id, String comments_content , String comments_date ) throws SQLException{
 		int row=0;
 		try{
