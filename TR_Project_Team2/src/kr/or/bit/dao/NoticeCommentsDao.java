@@ -120,7 +120,7 @@ public class NoticeCommentsDao {
 		ResultSet rs = null;
 		try {
 
-			String sql = "select ID, CONTENT, CREATED_DATE from NOTICE_COMMENTS where=? order by no desc";
+			String sql = "select * from NOTICE_COMMENTS where NOTICE_NUM=?";
 
 			conn = ds.getConnection();
 
