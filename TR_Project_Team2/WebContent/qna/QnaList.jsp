@@ -1,4 +1,4 @@
-﻿<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="kr.or.bit.dto.Qna"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,11 +6,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="Stylesheet" href="<%=request.getContextPath()%>/style/default.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<link rel="Stylesheet" href="<%=request.getContextPath()%>/style/default.css" />
 </head>
+
 <body>
 	<c:import url="/include/header.jsp" />
 	게시판 목록
@@ -25,15 +27,15 @@
 	<c:set var="pagesize" value="<%=pagesize%>" />
 	<c:set var="cpage" value="<%=cpage%>" />
 	<c:set var="pagecount" value="<%=pagecount%>" />
-	<c:set var="list" value="<%=list%>"/>
-	<c:set var="totalboardCount" value="<%=totalboardCount%>"/>
+	<c:set var="list" value="<%=list%>" />
+	<c:set var="totalboardCount" value="<%=totalboardCount%>" />
 	<div id="pagecontainer">
 		<div style="padding-top: 30px; text-align: cetner">
 			<table width="80%" border="1" cellspacing="0" align="center">
 				<tr>
 					<td colspan="5">
 						<form name="list">
-						PageSize설정: 
+							PageSize설정:
 							<select name="ps" onchange="submit()">
 								<%
 				   					/* 
@@ -46,17 +48,17 @@
 										} 
 									*/
 		   						%>
-		   						<c:forEach var="i" begin="5" end="20" step="5">
-		   							<c:choose>
-									<c:when test="${pagesize == i}">
-	                            		 <option value='${i}' selected>${i}건</option>
-	                        		</c:when>
-									<c:otherwise>
-	                                  	  <option value='${i}'>${i}건</option>
-	                               </c:otherwise>
-								</c:choose>
-		   						</c:forEach>
-		   					</select>
+								<c:forEach var="i" begin="5" end="20" step="5">
+									<c:choose>
+										<c:when test="${pagesize == i}">
+											<option value='${i}' selected>${i}건</option>
+										</c:when>
+										<c:otherwise>
+											<option value='${i}'>${i}건</option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
 						</form>
 					</td>
 				</tr>
@@ -74,41 +76,40 @@
 		     		return;
 		     	} 
 		       %>
-	       
-		       
+
+
 				<c:forEach var="board" items="<%=list%>">
 					<c:set var="qna_num" value="${qna.qna_num }" />
 					<c:set var="qna_title" value="${qna.qna_title}" />
 					<c:set var="id" value="${qna.id}" />
-					<tr onmouseover="this.style.backgroundColor='gray'"
-						onmouseout="this.style.backgroundColor='white'">
+					<tr onmouseover="this.style.backgroundColor='gray'" onmouseout="this.style.backgroundColor='white'">
 						<td align="center">${qna.qna_num}</td>
 						<td align="left">
-							  <c:forEach var="i" begin="1" end="${qna.depth}" step="1">
-                        		&nbsp;&nbsp;&nbsp;
-                    		 </c:forEach>  
-                    		<c:if test="${qna.depth>0}">
+							<c:forEach var="i" begin="1" end="${qna.depth}" step="1">
+								&nbsp;&nbsp;&nbsp;
+							</c:forEach>
+							<c:if test="${qna.depth>0}">
 								<img src='images/re.gif' />
-							</c:if>  
+							</c:if>
 							<a href='boardRead.bbs?qna_num=${qna_num}&cp=${cpage}&ps=${pagesize}'>
 								<c:choose>
 									<c:when test="${subject != null && fn:length(subject)> 10}">
-	                            		${fn:substring(subject, 0, 10)}....
-	                        		</c:when>
+										${fn:substring(subject, 0, 10)}....
+									</c:when>
 									<c:otherwise>
-	                                  	${subject}
-	                               </c:otherwise>
+										${subject}
+									</c:otherwise>
 								</c:choose>
 							</a>
 						</td>
 						<td align="center">
 							<c:choose>
 								<c:when test="${writer != null && fn:length(writer) > 4}">
-                                	${fn:substring(writer, 0, 4)}...
-                            	</c:when>
+									${fn:substring(writer, 0, 4)}...
+								</c:when>
 								<c:otherwise>
-                             	 ${writer}
-                           		</c:otherwise>
+									${writer}
+								</c:otherwise>
 							</c:choose>
 						</td>
 						<td align="center">${qna.created_date}</td>
@@ -122,11 +123,11 @@
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
-						<!--이전 링크 --> 
+						<!--이전 링크 -->
 						<c:if test="${cpage>1}">
 							<a href="boardlist.bbs?cp=${cpage-1}&ps=${pagesize}">이전</a>
 							<!--페이지 리스트 구현  -->
-						</c:if> 
+						</c:if>
 						<c:forEach var="i" begin="1" end="${pagecount}" step="1">
 							<c:choose>
 								<c:when test="${cpage==i}">
@@ -136,8 +137,8 @@
 									<a href="boardlist.bbs?cp=${i}&ps=${pagesize}">[${i}]</a>
 								</c:otherwise>
 							</c:choose>
-						</c:forEach> 
-						<!--다음 링크 --> 
+						</c:forEach>
+						<!--다음 링크 -->
 						<c:if test="${cpage<pagecount}">
 							<a href="boardlist.bbs?cp=${cpage+1}&ps=${pagesize}">다음</a>
 						</c:if>
@@ -149,4 +150,7 @@
 		</div>
 	</div>
 </body>
+</body>
+>>>>>>> Hoguma
+
 </html>

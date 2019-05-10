@@ -1,8 +1,11 @@
 package kr.or.bit.controller;
 
 import java.io.IOException;
+<<<<<<< HEAD
 
 import javax.servlet.RequestDispatcher;
+=======
+>>>>>>> Hoguma
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +14,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 받지마세염
+>>>>>>> Hoguma
 import kr.or.bit.service.CommentsListService;
 import kr.or.bit.service.CommentsUpdateOkService;
 import kr.or.bit.service.CommentsUpdateService;
 import kr.or.bit.service.CommentsDeleteService;
 import kr.or.bit.service.CommentsInsertService;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Revert "이것도 받지마세염"
+=======
+
+>>>>>>> 받지마세염
+>>>>>>> Hoguma
 
 /**
  * Servlet implementation class CommentsController
@@ -46,6 +66,7 @@ public class CommentsController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
+<<<<<<< HEAD
     		System.out.println("InsertNotice.Comments");
     		action = new CommentsInsertService();
       	  	try {
@@ -55,6 +76,15 @@ public class CommentsController extends HttpServlet {
 				e.printStackTrace();
 			}
     		
+=======
+    		
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+    		
+>>>>>>> 받지마세염
+>>>>>>> Hoguma
     	}  else if(url_Command.equals("/noticomlist.Comments")) {
 
     		System.out.println("noticomlist.Comments");
@@ -90,11 +120,25 @@ public class CommentsController extends HttpServlet {
 				System.out.println("컨트롤러 막힘");
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
     	}
     	if(forward != null) {
             RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
                 rd.forward(request, response);
             }
+=======
+<<<<<<< HEAD
+=======
+    		
+    	}  else if(url_Command.equals("/MemoList.do")) {
+    //		forward = new ActionForward();
+    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+>>>>>>> Revert "이것도 받지마세염"
+=======
+
+>>>>>>> 받지마세염
+    	}
+>>>>>>> Hoguma
     }
 		
 

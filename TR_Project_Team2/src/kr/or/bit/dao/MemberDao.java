@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import kr.or.bit.dto.Emp;
 import kr.or.bit.dto.Member;
 
 /*
