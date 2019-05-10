@@ -22,7 +22,7 @@ public class CommentsUpdateOkService implements Action {
 		noticomdao.updateComment(notice_comment_num, notice_content);
 		
 		request.setAttribute("notice_num", notice_num);//내가 댓글을 쓴 공지글 번호
-		forward.setPath("공지상세보기로");//댓글을 작성한 공지 글번호로 이동
+		forward.setPath("/noticomlist.Comments");	//댓글을 작성한 공지 글번호로 이동
 		return forward;
 	}
 	
