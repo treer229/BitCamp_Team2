@@ -148,5 +148,6 @@
 			</table>
 		</div>
 	</div>
+>>>>>>> TravelReview controller, content.jsp List.jsp (수정중)
 </body>
 </html>
