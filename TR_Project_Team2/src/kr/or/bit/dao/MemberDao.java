@@ -10,7 +10,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import kr.or.bit.dto.Emp;
 import kr.or.bit.dto.Member;
 
 /*
@@ -149,25 +148,25 @@ public class MemberDao {
 	public Member MemberSearch(String id) {	//ID로 회원조회
 		PreparedStatement pstmt = null;
 	      ResultSet rs = null;
-	      Emp Emp= new Emp();
+	      Member member= new Member();
 	      
 	      try {
 	    	 conn = ds.getConnection();
-	         String sql = "select * from emp where empno= ?";
+	         String sql = "select * from MEMBER where ID= ?";
 	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setInt(1, empno);
+	         pstmt.setString(1, id);
 	                  
 	         rs = pstmt.executeQuery();
 	         
 	         while(rs.next()){
-	            Emp.setEmpno(rs.getInt("empno"));
-	            Emp.setEname(rs.getString("ename"));
-	            Emp.setJob(rs.getString("job"));
-	            Emp.setMgr(rs.getInt("mgr"));
-	            Emp.setHiredate(rs.getString("hiredate"));
-	            Emp.setSal(rs.getInt("sal"));
-	            Emp.setComm(rs.getInt("comm"));
-	            Emp.setDeptno(rs.getInt("deptno"));
+	        	member.setId(rs.getString("id"));
+	        	member.setPassword(rs.getString("password"));
+	        	member.setName(rs.getString("name"));
+	        	member.setGender(rs.getInt("gender"));
+	        	member.setEmail(rs.getString("email"));
+	        	member.setTravel(rs.getString("travel"));
+	        	member.setAdmin(rs.getInt("admin"));
+	           
 	         }
 	         
 	      } catch (Exception e) {
@@ -177,6 +176,6 @@ public class MemberDao {
 	    	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){}
 				if(conn!=null) try{conn.close();}catch (Exception e){} //반환
 	      }
-	      return Emp;
+	      return member;
 	}
 }
