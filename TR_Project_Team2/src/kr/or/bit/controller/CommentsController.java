@@ -9,22 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 받지마세염
-import kr.or.bit.service.CommentsListService;
-import kr.or.bit.service.CommentsUpdateOkService;
-import kr.or.bit.service.CommentsUpdateService;
-import kr.or.bit.service.CommentsDeleteService;
-import kr.or.bit.service.CommentsInsertService;
-<<<<<<< HEAD
-=======
->>>>>>> Revert "이것도 받지마세염"
-=======
-
->>>>>>> 받지마세염
 
 /**
  * Servlet implementation class CommentsController
@@ -56,57 +40,10 @@ public class CommentsController extends HttpServlet {
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
     		
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-    		
->>>>>>> 받지마세염
-    	}  else if(url_Command.equals("/noticomlist.Comments")) {
-
-    		System.out.println("noticomlist.Comments");
-    		action = new CommentsListService();
-      	  	try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("컨트롤러 막힘");
-				e.printStackTrace();
-			}
-    	} else if(url_Command.equals("/DeleteComNotice.comments")) {
-    		System.out.println("DeleteComNotice");
-    		action = new CommentsDeleteService();
-    		try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println("컨트롤러막힘");
-				e.printStackTrace();
-			}
-    	} else if(url_Command.equals("/UpdateComNotice.comments")) {
-    		try {
-        		System.out.println("UpdateComNotice");
-        		action = new CommentsUpdateService();
-			} catch (Exception e) {
-				System.out.println("컨트롤러 막힘");
-				e.printStackTrace();
-			}
-    	} else if(url_Command.equals("/UpdateOkComNotice.comments")) {
-    		try {
-        		System.out.println("UpdateOkComNotice");
-        		action = new CommentsUpdateOkService();
-			} catch (Exception e) {
-				System.out.println("컨트롤러 막힘");
-				e.printStackTrace();
-			}
-<<<<<<< HEAD
-=======
     		
     	}  else if(url_Command.equals("/MemoList.do")) {
     //		forward = new ActionForward();
     //		forward.setPath(/*여기에 주소를 넣어주세요*/);
->>>>>>> Revert "이것도 받지마세염"
-=======
-
->>>>>>> 받지마세염
     	}
     }
 		
