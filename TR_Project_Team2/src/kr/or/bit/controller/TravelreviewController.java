@@ -11,9 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.TravelReviewCommentDeleteService;
+import kr.or.bit.service.TravelReviewCommentListService;
+import kr.or.bit.service.TravelReviewCommentService;
 import kr.or.bit.service.TravelReviewContentService;
+import kr.or.bit.service.TravelReviewDeleteService;
+import kr.or.bit.service.TravelReviewEditOkService;
 import kr.or.bit.service.TravelReviewEditService;
 import kr.or.bit.service.TravelReviewListService;
+import kr.or.bit.service.TravelReviewRewriteOkService;
 import kr.or.bit.service.TravelReviewWriteService;
 
 /*
@@ -64,7 +70,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 상세보기, ok
-        else if(cmdURI.equals("/travelreviewread.TravelReview")){
+        else if(cmdURI.equals("/TravelReviewRead.TravelReview")){
         	action = new TravelReviewContentService();
         	
         	try {
@@ -76,7 +82,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 작성 요청, ok
-        else if(cmdURI.equals("/travelreviewwriteok.TravelReview")){
+        else if(cmdURI.equals("/TravelReviewWriteOk.TravelReview")){
         	action = new TravelReviewWriteService();
         	
         	try {
@@ -88,7 +94,8 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 수정 화면 제공, ok
-        else if(cmdURI.equals("/travelrevieweditform.TravelReview")){
+        else if(cmdURI.equals("/TravelReviewEditForm.TravelReview")){
+        	action = new TravelReviewEditService();
         	
         	try {
 				forward = action.execute(request, response);
