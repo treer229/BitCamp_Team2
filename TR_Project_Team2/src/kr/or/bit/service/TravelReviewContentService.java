@@ -24,7 +24,7 @@ public class TravelReviewContentService implements Action{
 		//글번호를 가지고 오지 않았을 경우 예외처리
 		//if(idx==null || idx.trim().equals("")){
 		if(tr_num == 0) {
-			response.sendRedirect("boardlist.bbs");
+			response.sendRedirect("../travelreviewlist.TravelReview");
 		}
 		
 		//idx = idx.trim();
@@ -60,7 +60,7 @@ public class TravelReviewContentService implements Action{
 	    request.setAttribute("dao", dao);
 	    
 	    forward.setRedirect(false);
-		forward.setPath("/board/board_content.jsp");
+		forward.setPath("/travelreview/travelreviewContent.jsp");
 		
 		return forward;
 	}
