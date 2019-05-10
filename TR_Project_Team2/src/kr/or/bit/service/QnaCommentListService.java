@@ -5,13 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
-
+//import org.json.simple.JSONArray;
+import net.sf.json.JSONArray;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.QnaDao;
 import kr.or.bit.dto.Qna_Comments;
-
 
 public class QnaCommentListService implements Action{
 
@@ -21,11 +20,11 @@ public class QnaCommentListService implements Action{
 		int comments_num = Integer.parseInt(request.getParameter("comments_num"));
 		String ps = request.getParameter("ps");
 		String cp = request.getParameter("cp");
-		List<Qna_Comments> commentList = null;
+		List<Qna_Comments> replylist = null;
 		
 		try {
 			QnaDao dao = new QnaDao();
-			commentList = dao.commentList(comments_num);
+			replylist = dao.commentList(comments_num);
 			System.out.println(1);
 			JSONArray jsonarray = JSONArray.fromObject(replylist);
 			System.out.println(2);
@@ -44,5 +43,3 @@ public class QnaCommentListService implements Action{
 	}
 
 }
-
-

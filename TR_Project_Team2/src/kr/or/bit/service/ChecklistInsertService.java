@@ -8,7 +8,7 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.ChecklistDAO;
 import kr.or.bit.dto.Checklist;
 
-public class ChecklistInsert implements Action {
+public class ChecklistInsertService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -27,10 +27,14 @@ public class ChecklistInsert implements Action {
 		list.setCl_title(title);
 		list.setColor(color);
 		
+		int row = 0;
 		
-		checkdao.getInsertChecklist(list);
+		row = checkdao.getInsertChecklist(list);
+		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/read.Checklist");
+		forward.setRedirect(true);
+		forward.setPath("read.Checklist");
+		
 		
 		return forward;
 	}

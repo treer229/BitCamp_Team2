@@ -8,7 +8,7 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.ChecklistDAO;
 import kr.or.bit.dto.Checklist;
 
-public class ChecklistUpdate implements Action {
+public class ChecklistUpdateService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
