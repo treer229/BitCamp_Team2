@@ -56,6 +56,7 @@ public class CommentsController extends HttpServlet {
 				e.printStackTrace();
 			}
     		
+
     	}  else if(url_Command.equals("/noticomlist.Comments")) {
 
     		System.out.println("noticomlist.Comments");
@@ -91,7 +92,6 @@ public class CommentsController extends HttpServlet {
 				System.out.println("컨트롤러 막힘");
 				e.printStackTrace();
 			}
-
     	}
     	if(forward != null) {
             RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
