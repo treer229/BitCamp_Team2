@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.TravelReviewContentService;
+import kr.or.bit.service.TravelReviewEditService;
 import kr.or.bit.service.TravelReviewListService;
+import kr.or.bit.service.TravelReviewWriteService;
 
 /*
-작업일자 : 2019-05-09
+작업일자 : 2019-05-10
 작업자 :   이힘찬
 작업내용 : TravelreviewController 작성
 */
@@ -59,26 +62,10 @@ public class TravelreviewController extends HttpServlet {
 				e.printStackTrace();
 			}
         }
-        /*
-        // 글 작성 요청, ok
-        else if(cmdURI.equals("/boardwriteok.TravelReview")){
-        	action = new BoardWriteAction();
-        	
-        	try {
-				forward = action.execute(request, response);
-			} 
-        	catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
-        
-        
-        
-        
         
         // 글 상세보기, ok
-        else if(cmdURI.equals("/boardRead.TravelReview")){
-        	action = new BoardContentAction();
+        else if(cmdURI.equals("/travelreviewread.TravelReview")){
+        	action = new TravelReviewContentService();
         	
         	try {
 				forward = action.execute(request, response);
@@ -88,10 +75,21 @@ public class TravelreviewController extends HttpServlet {
 			}
         }
         
+        // 글 작성 요청, ok
+        else if(cmdURI.equals("/travelreviewwriteok.TravelReview")){
+        	action = new TravelReviewWriteService();
+        	
+        	try {
+				forward = action.execute(request, response);
+			} 
+        	catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
         
         // 글 수정 화면 제공, ok
-        else if(cmdURI.equals("/boardEditForm.TravelReview")){
-        	action = new BoardEditAction();
+        else if(cmdURI.equals("/travelrevieweditform.TravelReview")){
+        	action = new TravelReviewEditService();
         	
         	try {
 				forward = action.execute(request, response);
@@ -186,7 +184,7 @@ public class TravelreviewController extends HttpServlet {
 				e.printStackTrace();
 			}
         }
-        */
+        
         
         
         
