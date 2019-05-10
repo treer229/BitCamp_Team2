@@ -3,6 +3,7 @@ package kr.or.bit.controller;
 import java.io.IOException;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import javax.servlet.RequestDispatcher;
 =======
@@ -11,6 +12,8 @@ import javax.servlet.RequestDispatcher;
 
 import javax.servlet.RequestDispatcher;
 >>>>>>> origin/CptNO
+=======
+>>>>>>> origin/Hoguma
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -47,6 +51,8 @@ import kr.or.bit.service.CommentsInsertService;
 >>>>>>> Hoguma
 =======
 >>>>>>> origin/CptNO
+=======
+>>>>>>> origin/Hoguma
 
 /**
  * Servlet implementation class CommentsController
@@ -77,6 +83,7 @@ public class CommentsController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -162,6 +169,14 @@ public class CommentsController extends HttpServlet {
 >>>>>>> Hoguma
 =======
 >>>>>>> origin/CptNO
+=======
+    		
+    		
+    	}  else if(url_Command.equals("/MemoList.do")) {
+    //		forward = new ActionForward();
+    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+    	}
+>>>>>>> origin/Hoguma
     }
 		
 

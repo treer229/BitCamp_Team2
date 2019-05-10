@@ -38,11 +38,12 @@ public class NoticeCommentsDao {
 		int row = 0;
 		try {
 			conn = ds.getConnection();
-			String sql = "insert into NOTICE_COMMENTS ( NOTICE_NUM, ID, CONTENT,CREATED_DATE, COMMENT_NUM) values (?,?,?,sysdate,NOTICE_COMMENTS_SEQ.NEXTVAL)";
+			String sql = "insert into NOTICE_COMMENTS (NOTICE_COMMENTS_SEQ.NEXTVAL, NOTICE_NUM, ID, CONTENT,CREATED_DATE) values (?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, Notice_comments.getNotice_num());
 			pstmt.setString(2, Notice_comments.getId());
 			pstmt.setString(3, Notice_comments.getComments_content());
+			pstmt.setString(4, Notice_comments.getcomments_date());
 
 			row = pstmt.executeUpdate();
 
@@ -116,7 +117,7 @@ public class NoticeCommentsDao {
 
 		try {
 
-			String sql = "select * from NOTICE_COMMENTS where NOTICE_NUM=?";
+			String sql = "select ID, CONTENT, CREATED_DATE from NOTICE_COMMENTS where=? order by no desc";
 
 			conn = ds.getConnection();
 
