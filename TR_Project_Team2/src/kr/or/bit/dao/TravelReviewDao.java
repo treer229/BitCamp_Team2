@@ -178,9 +178,12 @@ public class TravelReviewDao {
 				int refer = rs.getInt("refer");
 				int depth = rs.getInt("depth");
 				int step = rs.getInt("step");
-
+				
+				System.out.println(tr_num+"/"+id+"/"+tr_title+"/"+content+"/"+views+"/"+created_date+"/"+comment_count+"/"+refer+"/"+depth+"/"+step);
+				
 				TravelReview travelreviewdto = new TravelReview(tr_num,id,tr_title,content,views,created_date,comment_count,refer,depth,step);
 				list.add(travelreviewdto);
+			
 			}
 
 		} catch (Exception e) {
