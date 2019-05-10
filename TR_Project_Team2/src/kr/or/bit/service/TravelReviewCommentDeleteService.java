@@ -13,7 +13,7 @@ import kr.or.bit.dao.TravelReviewDao;
 작업내용 : TravelReviewReplyDeleteService 작성
 */
 
-public class TravelReviewReplyDeleteService implements Action {
+public class TravelReviewCommentDeleteService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
