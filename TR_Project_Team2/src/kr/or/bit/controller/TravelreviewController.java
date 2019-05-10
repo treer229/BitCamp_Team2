@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.service.TravelReviewListService;
+
 /*
 작업일자 : 2019-05-09
 작업자 :   이힘찬
@@ -45,6 +47,19 @@ public class TravelreviewController extends HttpServlet {
         	forward.setPath("/board/board_write.jsp");
         }
         
+        // 글 리스트 보여주기, ok
+        else if(cmdURI.equals("/travelreviewlist.TravelReview")){
+        	
+        	action = new TravelReviewListService();
+        	
+        	try {
+				forward = action.execute(request, response);
+			} 
+        	catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
+        /*
         // 글 작성 요청, ok
         else if(cmdURI.equals("/boardwriteok.TravelReview")){
         	action = new BoardWriteAction();
@@ -58,18 +73,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         
-        // 글 리스트 보여주기, ok
-        else if(cmdURI.equals("/travelreviewlist.TravelReview")){
-        	
-        	action = new BoardListAction();
-        	
-        	try {
-				forward = action.execute(request, response);
-			} 
-        	catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
+        
         
         
         // 글 상세보기, ok
@@ -182,6 +186,11 @@ public class TravelreviewController extends HttpServlet {
 				e.printStackTrace();
 			}
         }
+        */
+        
+        
+        
+        
         /*
         /*
         // 글 작세 비밀번호 오류 화면 제공

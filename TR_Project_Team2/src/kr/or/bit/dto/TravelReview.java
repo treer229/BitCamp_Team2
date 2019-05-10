@@ -16,27 +16,27 @@ public class TravelReview {			//여행후기
 	private int comment_count;		//댓글수
 	
 	// 계층형
-	private int ref; 				// 참조
-	private int dep; 				// 들여쓰기
-	private int stp; 				// 글의 순서
+	private int refer; 				// 참조
+	private int depth; 				// 들여쓰기
+	private int step; 				// 글의 순서
 	
 	
 	public TravelReview() {
 		
 	}
 	
-	public TravelReview(int tr_num, String id, String tr_title, String content, int views, String created_date2,
-			int comment_count, int ref, int dep, int stp) {
+	public TravelReview(int tr_num, String id, String tr_title, String content, int views, String created_date,
+			int comment_count, int refer, int depth, int step) {
 		this.tr_num = tr_num;
 		this.id = id;
 		this.tr_title = tr_title;
 		this.content = content;
 		this.views = views;
-		this.created_date = created_date2;
+		this.created_date = created_date;
 		this.comment_count = comment_count;
-		this.ref = ref;
-		this.dep = dep;
-		this.stp = stp;
+		this.refer = refer;
+		this.depth = depth;
+		this.step = step;
 	}
 
 	public int getTr_num() {
@@ -95,28 +95,28 @@ public class TravelReview {			//여행후기
 		this.comment_count = comment_count;
 	}
 
-	public int getRef() {
-		return ref;
+	public int getRefer() {
+		return refer;
 	}
 
-	public void setRef(int ref) {
-		this.ref = ref;
+	public void setRefer(int refer) {
+		this.refer = refer;
 	}
 
-	public int getDep() {
-		return dep;
+	public int getDepth() {
+		return depth;
 	}
 
-	public void setDep(int dep) {
-		this.dep = dep;
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 
-	public int getStp() {
-		return stp;
+	public int getStep() {
+		return step;
 	}
 
-	public void setStp(int stp) {
-		this.stp = stp;
+	public void setStep(int step) {
+		this.step = step;
 	}
 	
 }
