@@ -2,10 +2,15 @@ package kr.or.bit.controller;
 
 import java.io.IOException;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import javax.servlet.RequestDispatcher;
 =======
 >>>>>>> Hoguma
+=======
+
+import javax.servlet.RequestDispatcher;
+>>>>>>> origin/CptNO
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -22,11 +28,14 @@ import kr.or.bit.action.ActionForward;
 
 >>>>>>> 받지마세염
 >>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
 import kr.or.bit.service.CommentsListService;
 import kr.or.bit.service.CommentsUpdateOkService;
 import kr.or.bit.service.CommentsUpdateService;
 import kr.or.bit.service.CommentsDeleteService;
 import kr.or.bit.service.CommentsInsertService;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -36,6 +45,8 @@ import kr.or.bit.service.CommentsInsertService;
 
 >>>>>>> 받지마세염
 >>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
 
 /**
  * Servlet implementation class CommentsController
@@ -67,6 +78,9 @@ public class CommentsController extends HttpServlet {
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/CptNO
     		System.out.println("InsertNotice.Comments");
     		action = new CommentsInsertService();
       	  	try {
@@ -76,6 +90,7 @@ public class CommentsController extends HttpServlet {
 				e.printStackTrace();
 			}
     		
+<<<<<<< HEAD
 =======
     		
 <<<<<<< HEAD
@@ -85,6 +100,8 @@ public class CommentsController extends HttpServlet {
     		
 >>>>>>> 받지마세염
 >>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
     	}  else if(url_Command.equals("/noticomlist.Comments")) {
 
     		System.out.println("noticomlist.Comments");
@@ -121,11 +138,15 @@ public class CommentsController extends HttpServlet {
 				e.printStackTrace();
 			}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/CptNO
     	}
     	if(forward != null) {
             RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
                 rd.forward(request, response);
             }
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -139,6 +160,8 @@ public class CommentsController extends HttpServlet {
 >>>>>>> 받지마세염
     	}
 >>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
     }
 		
 
