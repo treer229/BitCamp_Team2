@@ -34,20 +34,17 @@ public class NoticeDao {
 	}
 	
 	public int noticeWrite(Notice notice) {//일반 게시판 글쓰기 작업
+
 		int row = 0;
 		try {
 			conn = ds.getConnection();
-			String sql = "insert into NOTICE(NOTICE_NUM,TITLE,CONTENT,VIEWS,CREATED_DATE,COMMENT_COUNT,id) values("
-					+ " NOTICE_SEQ.nextval,?,?,?,?,?,?,sysdate,0,?,0,?)";
+			String sql = "insert into NOTICE(NOTICE_NUM,CREATED_DATE,TITLE,CONTENT,VIEWS,COMMENT_COUNT,ID) values(NOTICE_SEQ.nextval,sysdate,?,?,0,0,?)";
 			pstmt = conn.prepareStatement(sql);
 
 			// parameter 설정하기
 			pstmt.setString(1, notice.getnotice_title());
 			pstmt.setString(2, notice.getnotice_content());
-			pstmt.setInt(3, notice.getnotice_view());
-			pstmt.setString(4, notice.getnotice_date());
-			pstmt.setInt(5, notice.getcomment_count());
-			pstmt.setString(6, notice.getId());
+			pstmt.setString(3, notice.getId());
 
 			row = pstmt.executeUpdate();
 		} 
