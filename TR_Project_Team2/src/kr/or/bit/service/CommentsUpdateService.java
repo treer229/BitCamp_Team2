@@ -22,8 +22,8 @@ public class CommentsUpdateService implements Action {
 		
 		
 		if(!id.equals(sessionid)||notice_num==0) {//세션에 저장된 id값과 댓글에 저장된 id 값이 다를경우 공지로 이동
-			request.setAttribute("notice_num", notice_num);
-			response.sendRedirect("");
+			request.setAttribute("notice_num", notice_num);//내가 댓글을 쓴 공지글 번호
+			forward.setPath("/noticomlist.Comments");	//댓글을 작성한 공지 글번호로 이동
 		} 
 		
 		request.setAttribute("notice_num", notice_num);
