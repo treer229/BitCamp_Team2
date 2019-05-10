@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.ScheduleInsertOk;
-import kr.or.bit.service.ScheduleDelete;
-import kr.or.bit.service.ScheduleEdit;
-import kr.or.bit.service.ScheduleEditOk;
-import kr.or.bit.service.ScheduleListAll;
+import kr.or.bit.service.ScheduleInsertOkService;
+import kr.or.bit.service.ScheduleDeleteService;
+import kr.or.bit.service.ScheduleEditService;
+import kr.or.bit.service.ScheduleEditOkService;
+import kr.or.bit.service.ScheduleListService;
 
 
 @WebServlet("*.Schedule")
@@ -45,7 +45,7 @@ public class ScheduleController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/list.Schedule")) {// 업무처리
-	      	 action = new ScheduleListAll();
+	      	 action = new ScheduleListService();
 	      	 try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ public class ScheduleController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setPath("/WEB-INF/Page/insertschedule.jsp");
 		}else if(url_Command.equals("/insertOk.Schedule")) {
-			action = new ScheduleInsertOk();
+			action = new ScheduleInsertOkService();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -64,7 +64,7 @@ public class ScheduleController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(url_Command.equals("/edit.Schedule")) {
-			action = new ScheduleEdit();
+			action = new ScheduleEditService();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -72,7 +72,7 @@ public class ScheduleController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(url_Command.equals("/editok.Schedule")) {
-			action = new ScheduleEditOk();
+			action = new ScheduleEditOkService();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -80,7 +80,7 @@ public class ScheduleController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(url_Command.equals("/del.Schedule")) {
-			action = new ScheduleDelete();
+			action = new ScheduleDeleteService();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -90,10 +90,15 @@ public class ScheduleController extends HttpServlet {
 		}
     	
     	
-    	if(forward != null) {
-            RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
-                rd.forward(request, response);
-            }
+    	
+		if(forward != null){
+			if(forward.isRedirect()){
+			   response.sendRedirect(forward.getPath());
+			}else{
+			   RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+			   dispatcher.forward(request, response);
+		   }
+		}
     }
 		
 
