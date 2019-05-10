@@ -11,7 +11,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>board_content</title>
-	 <link rel="Stylesheet" href="<%=request.getContextPath()%>/style/default.css" />
+	 <%-- <link rel="Stylesheet" href="<%=request.getContextPath()%>/style/default.css" /> --%>
 </head>
 <body>
 	<%
@@ -69,23 +69,23 @@
 						<td width="20%" align="center"><b> 글번호 </b></td>
 						<td width="30%"><%= tr_num %></td>
 						<td width="20%" align="center"><b>작성일</b></td>
-						<td><%= boarddto.getWritedate() %></td>
+						<td><%= boarddto.getCreated_date() %></td>
 					</tr>
 					<tr>
 						<td width="20%" align="center"><b>글쓴이</b></td>
-						<td width="30%"><%=boarddto.getWriter() %></td>
+						<td width="30%"><%=boarddto.getId() %></td>
 						<td width="20%" align="center"><b>조회수</b></td>
-						<td><%= boarddto.getReadnum() %></td>
+						<td><%= boarddto.getViews() %></td>
 					</tr>
 					<tr>
 						<td width="20%" align="center"><b>홈페이지</b></td>
-						<td><%= boarddto.getHomepage() %></td>
+						<td><%-- <%= boarddto.getHomepage() %> --%></td>
 						<td width="20%" align="center"><b>첨부파일</b></td>
-						<td>(<%= boarddto.getFilesize() %>)bytes</td>
+						<td>(<%-- <%= boarddto.getFilesize() %> --%>)bytes</td>
 					</tr>
 					<tr>
 						<td width="20%" align="center"><b>제목</b></td>
-						<td colspan="3"><%= boarddto.getSubject() %></td>
+						<td colspan="3"><%= boarddto.getTr_title() %></td>
 					</tr>
 					<tr height="100">
 						<td width="20%" align="center"><b>글내용</b></td>
@@ -105,14 +105,14 @@
 							<a href="boardlist.bbs?cp=<%= cpage %>&ps=<%= pagesize %>">목록가기</a>
 				            |<a href="boardEditForm.bbs?idx=<%= tr_num %>&cp=<%= cpage %>&ps=<%= pagesize %>">편집</a>
 				            |<a href="boardDeletePassword.bbs?idx=<%= tr_num %>&cp=<%= cpage %>&ps=<%= pagesize %>">삭제</a>
-				            |<a href="boardRewrite.bbs?idx=<%= tr_num %>&cp=<%= cpage %>&ps=<%= pagesize %>&subject=<%= boarddto.getSubject() %>">답글</a>									
+				            |<a href="boardRewrite.bbs?idx=<%= tr_num %>&cp=<%= cpage %>&ps=<%= pagesize %>&subject=<%= boarddto.getTr_title() %>">답글</a>									
 						</td>
 					</tr>
 				</table>
 			<!--  꼬리글 달기 테이블 -->
 		<form name="reply" id="reply" method="POST"> 
 				<!-- hidden 태그  값을 숨겨서 처리  -->
-				<input type="hidden" name="idx" value="<%= idx %>">
+				<input type="hidden" name="tr_num" value="<%= tr_num %>">
 				<input type="hidden" name="userid" value="">
 					<!-- hidden data -->
 					<table width="80%" border="1">
@@ -141,7 +141,7 @@
 		
 		
 		var data = {
-					idx: <%=tr_num%>,
+					tr_num : <%=tr_num%>,
 					ps: <%=pagesize%>,
 					cp: <%=cpage%>
 				   }	
