@@ -17,7 +17,7 @@ import net.sf.json.JSONArray;
 작업내용 : TravelReviewReplyListService 작성
 */
 
-public class TravelReviewReplyListService implements Action{
+public class TravelReviewCommentListService implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
