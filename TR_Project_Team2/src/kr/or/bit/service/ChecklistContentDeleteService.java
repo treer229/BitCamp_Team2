@@ -5,20 +5,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.dao.ScheduleDAO;
+import kr.or.bit.dao.ChecklistDAO;
+import kr.or.bit.dto.Checklistcontent;
 
-public class ScheduleDelete implements Action {
+public class ChecklistContentDeleteService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		
-		int schedule_num = Integer.parseInt(request.getParameter("schedule_num"));
+		int clc_num = Integer.parseInt(request.getParameter("clc_num"));
 		
-		ScheduleDAO dao = new ScheduleDAO();
+		ChecklistDAO dao = new ChecklistDAO();
+		Checklistcontent content = new Checklistcontent();
 		
-		dao.getDeleteSchedule(schedule_num);
-		forward.setPath("/list.Schedule");
+		dao.getDeleteChecklistContent(clc_num);
+		forward.setPath("/CheckContent.Checklist");
 		return forward;
 	}
 

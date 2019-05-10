@@ -1,26 +1,37 @@
 package kr.or.bit.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.ScheduleDAO;
+import kr.or.bit.dto.Member;
 import kr.or.bit.dto.Schedule;
 
-public class ScheduleEdit implements Action {
+public class ScheduleListService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		
-		int schedule_num = Integer.parseInt(request.getParameter("schedule_num"));
-		
 		ScheduleDAO dao = new ScheduleDAO();
-		Schedule schedule = dao.getScheduleList(schedule_num);
 		
-		request.setAttribute("schedule", schedule);
-		forward.setPath("/WEB-INF/Page/scheduleedit.jsp");
+		Member memeber = new Member();
+		
+		if(request.getParameter("id") == null) {
+		List<Schedule> list = dao.getScheduleListAll("admin");
+		request.setAttribute("list", list);
+		}else {
+		String id = request.getParameter("id");
+		List<Schedule> list = dao.getScheduleListAll(id);
+		request.setAttribute("list", list);
+		}
+		
+
+		forward.setPath("/WEB-INF/Page/Schedulelisttest.jsp");
 		return forward;
 	}
 
