@@ -89,35 +89,32 @@ public class NoticeCommentsDao {
 		return row;
 	}
 
-	public boolean updateComment(int comment_num, String content) {
-		boolean check = false;
-		PreparedStatement pstmt = null;
-		Connection conn = null;
-		ResultSet rs = null;
+	public int updateComment(int comment_num, String content) {
+		int row = 0;
+
 		try{
 			String sql = "UPDATE NOTICE_COMMENTS SET CONTENT=? WHERE COMMENT_NUM=?";
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, content);
 			pstmt.setInt(2, comment_num);
-			pstmt.executeUpdate();
-		
+
+			row = pstmt.executeUpdate();
+			
 			} catch (Exception e) {
 				e.printStackTrace();
-				check = false;
+				row = -1;
 			} finally{
 				if (rs != null) try {rs.close();} catch (Exception e) {}
 				if (pstmt != null) try {pstmt.close();} catch (Exception e) {}
 				if (conn != null) try {conn.close();} catch (Exception e) {}
 			}
-		return check;
+		return row;
 }
 
 	public List<Notice_Comments> noticeCommentList(int Notice_Num) {
 		List<Notice_Comments> noticommentlist = new ArrayList<Notice_Comments>();
-		PreparedStatement pstmt = null;
-		Connection conn = null;
-		ResultSet rs = null;
+
 		try {
 
 			String sql = "select ID, CONTENT, CREATED_DATE from NOTICE_COMMENTS where=? order by no desc";
