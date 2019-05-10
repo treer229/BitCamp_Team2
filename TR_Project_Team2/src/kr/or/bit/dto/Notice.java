@@ -14,18 +14,6 @@ public class Notice {
 	private String id;
 	private int notice_view;
 	
-	
-	
-	public Notice(int notice_num, String notice_title, String notice_content, String notice_date, int comment_count,
-			String id, int notice_view) {
-		this.notice_num = notice_num;
-		this.notice_title = notice_title;
-		this.notice_content = notice_content;
-		this.notice_date = notice_date;
-		this.comment_count = comment_count;
-		this.id = id;
-		this.notice_view = notice_view;
-	}
 	public int getnotice_view() {
 		return notice_view;
 	}
