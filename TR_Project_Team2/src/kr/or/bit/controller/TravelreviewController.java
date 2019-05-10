@@ -1,6 +1,8 @@
 package kr.or.bit.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,54 +11,39 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-<<<<<<< HEAD
-=======
+import kr.or.bit.service.TravelReviewContentService;
+import kr.or.bit.service.TravelReviewEditService;
 import kr.or.bit.service.TravelReviewListService;
+import kr.or.bit.service.TravelReviewWriteService;
 
 /*
-작업일자 : 2019-05-09
+작업일자 : 2019-05-10
 작업자 :   이힘찬
 작업내용 : TravelreviewController 작성
 */
->>>>>>> Webcontent/travelreview폴더 추가, travelreview controller , dao , ListService  수정
 
-
-@WebServlet("*.Travelreview")
+@WebServlet("*.TravelReview")
 public class TravelreviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     public TravelreviewController() {
         super();
-        // TODO Auto-generated constructor stub
     }
+    
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	//request.setCharacterEncoding("UTF-8");
+        String requestURI = request.getRequestURI();
+        String contextPath = request.getContextPath();
+        String cmdURI = requestURI.substring(contextPath.length());
+        
+        
+        //http://localhost:8090/WebServlet_94_Board_Model2_Mvc/boardwrite.bbs
+        
+        //BoardCmd cmd = null;
+        //String viewPage = null;
+        ActionForward forward = new ActionForward();
+        Action action = null;
 
-<<<<<<< HEAD
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	ActionForward forward = null;
-    	Action action = null;
-    	
-    	//요청받기 시작
-    	String requestURI = request.getRequestURI();
-    	String ContextPath = request.getContextPath();
-    	String url_Command = requestURI.substring(ContextPath.length());
-
-    	System.out.println("requestURI"+requestURI+"컨트롤러 check");
-    	System.out.println("ContextPath"+ContextPath+"컨트롤러 check");
-    	System.out.println("url_Command"+url_Command+"컨트롤러 check");
-    	
-    	
-    	if(url_Command.equals("/Register.do")) {// 업무처리
-      	  
-    	   System.out.println("if확인");
-			
-			 
-
-    	}  else if(url_Command.equals("/MemoList.do")) {
-    		forward = new ActionForward();
-    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
-    	}
-=======
         // 글 작성 화면 요청이 들어왔을때, ok  (화면처리)
         if(cmdURI.equals("/boardwrite.TravelReview")){
         	forward.setRedirect(false);
@@ -75,26 +62,10 @@ public class TravelreviewController extends HttpServlet {
 				e.printStackTrace();
 			}
         }
-        /*
-        // 글 작성 요청, ok
-        else if(cmdURI.equals("/boardwriteok.TravelReview")){
-        	action = new BoardWriteAction();
-        	
-        	try {
-				forward = action.execute(request, response);
-			} 
-        	catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
-        
-        
-        
-        
         
         // 글 상세보기, ok
-        else if(cmdURI.equals("/boardRead.TravelReview")){
-        	action = new BoardContentAction();
+        else if(cmdURI.equals("/travelreviewread.TravelReview")){
+        	action = new TravelReviewContentService();
         	
         	try {
 				forward = action.execute(request, response);
@@ -104,10 +75,21 @@ public class TravelreviewController extends HttpServlet {
 			}
         }
         
+        // 글 작성 요청, ok
+        else if(cmdURI.equals("/travelreviewwriteok.TravelReview")){
+        	action = new TravelReviewWriteService();
+        	
+        	try {
+				forward = action.execute(request, response);
+			} 
+        	catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
         
         // 글 수정 화면 제공, ok
-        else if(cmdURI.equals("/boardEditForm.TravelReview")){
-        	action = new BoardEditAction();
+        else if(cmdURI.equals("/travelrevieweditform.TravelReview")){
+        	action = new TravelReviewEditService();
         	
         	try {
 				forward = action.execute(request, response);
@@ -202,7 +184,7 @@ public class TravelreviewController extends HttpServlet {
 				e.printStackTrace();
 			}
         }
-        */
+        
         
         
         
@@ -254,14 +236,11 @@ public class TravelreviewController extends HttpServlet {
         		dis.forward(request, response);
         	}
         }
->>>>>>> Webcontent/travelreview폴더 추가, travelreview controller , dao , ListService  수정
     }
-		
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
