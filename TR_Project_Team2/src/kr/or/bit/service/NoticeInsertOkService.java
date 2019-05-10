@@ -5,23 +5,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+import kr.or.bit.dao.NoticeDao;
+import kr.or.bit.dto.Notice;
 
-public class NoticeInsertService implements Action {
+public class NoticeInsertOkService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		
 		String id = request.getParameter("id");
-		String sessionid = request.getParameter("sessionid");
+		String content = request.getParameter("Notice_content");
+		String title = request.getParameter("notice_title");
 		
-		if(id.equals(sessionid)) {
-			response.sendRedirect("");//공지 사항으로 이동
-		}
+		NoticeDao notidao = new NoticeDao();
+		Notice notice = new Notice();
+		notice.setId(id);
+		notice.setnotice_content(content);
+		notice.setnotice_title(title);
 		
-		request.setAttribute("id", id);
+		notidao.noticeWrite(notice);
 		
-		forward.setPath("");//insertok로 보내자
+		
 		return forward;
 	}
 
