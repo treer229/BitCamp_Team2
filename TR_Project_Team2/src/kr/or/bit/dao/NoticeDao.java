@@ -58,7 +58,7 @@ public class NoticeDao {
 	}
 
 	public Notice getContent(int notice_num) {//공지글 상세보기 출력
-		Notice notice = null;
+		Notice notice = new Notice();
 		try{
 				conn = ds.getConnection();
 				String sql ="select * from NOTICE where notice_num=?";
@@ -76,7 +76,14 @@ public class NoticeDao {
 					int comment_count = rs.getInt("comment_count");
 					int view = rs.getInt("notirce_view");
 					
-					notice = new Notice(num, title, content, date, comment_count,id, view);
+					//notice = new Notice(num, title, content, date, comment_count,id, view);
+					notice.setnotice_num(num);
+					notice.setnotice_title(title);
+					notice.setnotice_content(content);
+					notice.setnotice_date(date);
+					notice.setId(id);
+					notice.
+					
 				} else {
 					System.out.println("입력실패");
 				}
