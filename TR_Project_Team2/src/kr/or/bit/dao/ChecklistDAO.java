@@ -92,8 +92,9 @@ public class ChecklistDAO {
 	}
 		return check;
 	}
-	public Checklistcontent getChecklistContent(int clc_num) {
-		Checklistcontent content = null;
+	public List<Checklistcontent> getChecklistContent(int clc_num) {
+		List<Checklistcontent> list = new ArrayList<Checklistcontent>();
+		
 		try {
 			conn = ds.getConnection();
 			String sql = "select * from CHECKLIST_CONTENT where CL_NUM = ?";
@@ -103,14 +104,21 @@ public class ChecklistDAO {
 			rs = pstmt.executeQuery();
 			System.out.println("체크컨텐츠 쿼리문 실행 완료");
 			if(rs.next()) {
-				content = new Checklistcontent();
-				content.setClc_num(rs.getInt(1));
-				content.setCl_num(rs.getInt(2));
-				content.setContent(rs.getString(3));
+				
+				do {
+					Checklistcontent content = new Checklistcontent();
+					content = new Checklistcontent();
+					content.setClc_num(rs.getInt(1));
+					content.setCl_num(rs.getInt(2));
+					content.setContent(rs.getString(3));
+					
+					list.add(content);
+				}while(rs.next());
+				System.out.println("체크컨텐츠 담기 완료");
 			}else {
 				System.out.println("체크컨텐츠 없음");
 			}
-			System.out.println("체크컨텐츠 담기 완료");
+			
 		} catch (Exception e) {
 			System.out.println("체크리스트 컨텐츠 받아오기 실패");
 			System.out.println(e.getMessage());
@@ -119,7 +127,7 @@ public class ChecklistDAO {
     	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){System.out.println("체크컨텐츠 pstmt DB서버 닫기 실패"); System.out.println(e.getMessage());}
 			if(conn!=null) try{conn.close();}catch (Exception e){System.out.println("체크컨텐츠 conn DB서버 닫기 실패"); System.out.println(e.getMessage());}
 	}
-		return content;
+		return list;
 	}
 	public List<Checklistok> getCheckListok(Checklistcontent content) {
 		List<Checklistok> list = new ArrayList<Checklistok>();
@@ -180,7 +188,7 @@ public class ChecklistDAO {
 		return row;
 	}
 	
-	public int getDeleteChecklistContentAll(int CL_NUM) {
+	public int getDeleteChecklistContentAll(int cl_num) {
 		int row = 0;
 		int row2 = 0;
 		
@@ -189,7 +197,7 @@ public class ChecklistDAO {
 			
 			String sql = "delete from CHECKLIST_CONTENT where CL_NUM = ?";
 			pstmt =conn.prepareStatement(sql);
-			pstmt.setInt(1, CL_NUM);
+			pstmt.setInt(1, cl_num);
 			row2 = pstmt.executeUpdate();
 			 
 			if(row2 > 0) {
@@ -207,7 +215,7 @@ public class ChecklistDAO {
 		return row;
 	}
 	
-	public int getDeleteChecklistContent(int CLC_NUM) {
+	public int getDeleteChecklistContent(int clc_num) {
 		int row = 0;
 		int row2 = 0;
 		
@@ -216,7 +224,7 @@ public class ChecklistDAO {
 			
 			String sql = "delete from CHECKLIST_CONTENT where CLC_NUM = ?";
 			pstmt =conn.prepareStatement(sql);
-			pstmt.setInt(1, CLC_NUM);
+			pstmt.setInt(1, clc_num);
 			row2 = pstmt.executeUpdate();
 			 
 			if(row2 > 0) {
@@ -290,7 +298,7 @@ public class ChecklistDAO {
 		return row;
 	}
 	
-	public int getInsertChecklistContent(Checklist checklist,String content) {
+	public int getInsertChecklistContent(Checklistcontent content) {
 		int num =0;
 		int row = 0;
 		String sql ="";
@@ -310,8 +318,8 @@ public class ChecklistDAO {
 			sql = "insert into CHECKLIST_CONTENT(CLC_NUM,CL_NUM,CONTENT) values(?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setInt(2,checklist.getCl_num());
-			pstmt.setString(3, content);
+			pstmt.setInt(2,content.getCl_num());
+			pstmt.setString(3, content.getContent());
 			row = pstmt.executeUpdate();
 			
 			if(row>0) {

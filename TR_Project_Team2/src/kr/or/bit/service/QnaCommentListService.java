@@ -43,5 +43,3 @@ public class QnaCommentListService implements Action{
 	}
 
 }
-
-

@@ -5,22 +5,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.dao.ChecklistDAO;
-import kr.or.bit.dto.Checklistcontent;
 
-public class ChecklistContentView implements Action {
+public class ChecklistContentInsetService implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int num = Integer.parseInt(request.getParameter("num"));
-		
 		ActionForward forward = new ActionForward();
-		ChecklistDAO dao = new ChecklistDAO();
-		Checklistcontent clc = dao.getChecklistContent(num);
+		int cl_num = Integer.parseInt(request.getParameter("cl_num"));
+		int clc_num = Integer.parseInt(request.getParameter("num"));
+		request.setAttribute("cl_num", cl_num);
+		request.setAttribute("num", clc_num);
 		
-		request.setAttribute("content", clc);
-		forward.setPath("/WEB-INF/Page/content.jsp");
-		
+		System.out.println("num값 :" + clc_num );
+		forward.setPath("/WEB-INF/Page/contentinsert.jsp");
 		return forward;
 	}
 
