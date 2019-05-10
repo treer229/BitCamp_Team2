@@ -90,7 +90,7 @@
                     		<c:if test="${board.depth>0}">
 								<img src='img/board/re.gif' />
 							</c:if>  
-							<a href='../travelreviewread.TravelReview?idx=${tr_num}&cp=${cpage}&ps=${pagesize}'>
+							<a href='boardRead.bbs?idx=${tr_num}&cp=${cpage}&ps=${pagesize}'>
 								<c:choose>
 									<c:when test="${tr_title != null && fn:length(tr_title)> 10}">
 	                            		${fn:substring(tr_title, 0, 10)}....
