@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import kr.or.bit.dto.Emp;
 import kr.or.bit.dto.Member;
 
 /*
@@ -34,7 +35,7 @@ public class MemberDao {
 		}
 	}
 	
-	public List<Member> selectAllList() {	//회원전체조회
+	public List<Member> MemberAllList() {	//회원전체조회
 	      
 		  PreparedStatement pstmt = null;
 	      ResultSet rs = null;
@@ -71,7 +72,7 @@ public class MemberDao {
 	
 	
 	
-	public int insertMember(Member member) {	//회원가입
+	public int MemberInsert(Member member) {	//회원가입
 		int row = 0;
 		 try {
 	         conn = ds.getConnection();
@@ -98,7 +99,7 @@ public class MemberDao {
 	}
 	
 	
-	public int updateEmp(Member member) {	//회원정보 수정하기
+	public int MemberEdit(Member member) {	//회원정보 수정하기
 		int row = 0;
 		   PreparedStatement pstmt = null;
     
@@ -124,7 +125,7 @@ public class MemberDao {
 		         return row;
 	   }
 
-	public int deleteMember(String id) {	//ID로 삭제
+	public int MemberDelete(String id) {	//ID로 삭제
 		  int row = 0;
 	      PreparedStatement pstmt = null;
 
@@ -137,10 +138,45 @@ public class MemberDao {
 
 	      }catch(Exception e){
 	         System.out.println(e.getMessage());
+	        // row = -1;
 	      }finally {
 		    if(pstmt!=null) try{pstmt.close();}catch (Exception e){}
 			if(conn!=null) try{conn.close();}catch (Exception e){} //반환
 	      }
 		return row;
+	}
+	
+	public Member MemberSearch(String id) {	//ID로 회원조회
+		PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      Emp Emp= new Emp();
+	      
+	      try {
+	    	 conn = ds.getConnection();
+	         String sql = "select * from emp where empno= ?";
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setInt(1, empno);
+	                  
+	         rs = pstmt.executeQuery();
+	         
+	         while(rs.next()){
+	            Emp.setEmpno(rs.getInt("empno"));
+	            Emp.setEname(rs.getString("ename"));
+	            Emp.setJob(rs.getString("job"));
+	            Emp.setMgr(rs.getInt("mgr"));
+	            Emp.setHiredate(rs.getString("hiredate"));
+	            Emp.setSal(rs.getInt("sal"));
+	            Emp.setComm(rs.getInt("comm"));
+	            Emp.setDeptno(rs.getInt("deptno"));
+	         }
+	         
+	      } catch (Exception e) {
+	         System.out.println(e.getMessage());
+	      }finally{
+				if(rs!=null) try {rs.close();}catch(Exception e) {}
+	    	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){}
+				if(conn!=null) try{conn.close();}catch (Exception e){} //반환
+	      }
+	      return Emp;
 	}
 }
