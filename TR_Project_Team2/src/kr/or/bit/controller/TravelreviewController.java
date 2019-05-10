@@ -11,15 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
-import kr.or.bit.service.TravelReviewCommentDeleteService;
-import kr.or.bit.service.TravelReviewCommentListService;
-import kr.or.bit.service.TravelReviewCommentService;
 import kr.or.bit.service.TravelReviewContentService;
-import kr.or.bit.service.TravelReviewDeleteService;
-import kr.or.bit.service.TravelReviewEditOkService;
 import kr.or.bit.service.TravelReviewEditService;
 import kr.or.bit.service.TravelReviewListService;
-import kr.or.bit.service.TravelReviewRewriteOkService;
 import kr.or.bit.service.TravelReviewWriteService;
 
 /*
@@ -57,7 +51,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 리스트 보여주기, ok
-        else if(cmdURI.equals("/TravelReviewList.TravelReview")){
+        else if(cmdURI.equals("/travelreviewlist.TravelReview")){
         	
         	action = new TravelReviewListService();
         	
@@ -70,7 +64,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 상세보기, ok
-        else if(cmdURI.equals("/TravelReviewRead.TravelReview")){
+        else if(cmdURI.equals("/travelreviewread.TravelReview")){
         	action = new TravelReviewContentService();
         	
         	try {
@@ -82,7 +76,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 작성 요청, ok
-        else if(cmdURI.equals("/TravelReviewWriteOk.TravelReview")){
+        else if(cmdURI.equals("/travelreviewwriteok.TravelReview")){
         	action = new TravelReviewWriteService();
         	
         	try {
@@ -94,7 +88,7 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 수정 화면 제공, ok
-        else if(cmdURI.equals("/TravelReviewEditForm.TravelReview")){
+        else if(cmdURI.equals("/travelrevieweditform.TravelReview")){
         	action = new TravelReviewEditService();
         	
         	try {
@@ -107,8 +101,8 @@ public class TravelreviewController extends HttpServlet {
         
         
         // 글 수정 처리, ok
-        else  if(cmdURI.equals("/TravelReviewEdit.TravelReview")){
-        	action = new TravelReviewEditOkService();
+        else  if(cmdURI.equals("/boardEdit.TravelReview")){
+        	action = new BoardEditOkAction();
         	
         	try {
 				forward = action.execute(request, response);
@@ -119,15 +113,15 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 글 삭제 비밀번호 확인 화면 제공, ok
-        else if(cmdURI.equals("/TravelReviewDeletePassword.TravelReview")){
+        else if(cmdURI.equals("/boardDeletePassword.TravelReview")){
         	forward.setRedirect(false);
-        	forward.setPath("/travelreview/travelreviewDelete.jsp");
+        	forward.setPath("/board/board_delete.jsp");
         }
         
         
         // 글 삭제 비밀번호 확인 처리, ok
-        else if(cmdURI.equals("/TravelReviewDeleteCheck.TravelReview")){
-        	action = new TravelReviewDeleteService();
+        else if(cmdURI.equals("/boardDeleteCheck.TravelReview")){
+        	action = new BoardDeleteAction();
         	
         	try {
 				forward = action.execute(request, response);
@@ -138,14 +132,14 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 답글작성 화면제공
-        else if(cmdURI.equals("/TravelReviewRewrite.TravelReview")) {
+        else if(cmdURI.equals("/boardRewrite.TravelReview")) {
         	forward.setRedirect(false);
-        	forward.setPath("/travelreview/travelreviewRewrite.jsp");
+        	forward.setPath("/board/board_rewrite.jsp");
         }
         
         // 답글 작성
-        else if(cmdURI.equals("/TravelReviewRewriteOk.TravelReview")) {
-        	action = new TravelReviewRewriteOkService();
+        else if(cmdURI.equals("/boardRewriteok.TravelReview")) {
+        	action = new BoardRewriteOkAction();
         	
         	try {
 				forward = action.execute(request, response);
@@ -156,8 +150,8 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 댓글 작성
-        else if(cmdURI.equals("/TravelReviewCommentOk.TravelReview")) {
-        	action = new TravelReviewCommentService();
+        else if(cmdURI.equals("/boardReplyok.TravelReview")) {
+        	action = new BoardReplyAction();
         	System.out.println("boardReplyok................");
         	try {
 				forward = action.execute(request, response);
@@ -168,8 +162,8 @@ public class TravelreviewController extends HttpServlet {
         }
         
         // 댓글 삭제
-        else if(cmdURI.equals("/TravelReviewCommentDeleteOk.TravelReview")) {
-        	action = new TravelReviewCommentDeleteService();
+        else if(cmdURI.equals("/boardreplyDeleteOk.TravelReview")) {
+        	action = new BoardReplyDeleteAction();
         	
         	try {
 				forward = action.execute(request, response);
@@ -179,9 +173,9 @@ public class TravelreviewController extends HttpServlet {
 			}
         }
         
-        else if(cmdURI.equals("/TravelReviewCommentList.TravelReview")) {
+        else if(cmdURI.equals("/boardreplylist.TravelReview")) {
         	System.out.println("boardreplylist들어옴");
-        	action = new TravelReviewCommentListService();
+        	action = new BoardReplyListAction();
         	
         	try {
 				forward = action.execute(request, response);
