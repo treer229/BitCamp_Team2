@@ -47,10 +47,8 @@ public class TravelReviewListService implements Action {
         }
         //페이지 갯수 : 102 건 , pagesize :5   pagecount: 21
         
-
         
         List<TravelReview> list= dao.list(cpage, pagesize);
-		
         
         ActionForward forward = new ActionForward();
         request.setAttribute("cpage", cpage);
@@ -60,7 +58,7 @@ public class TravelReviewListService implements Action {
         request.setAttribute("totalboardCount", totalboardCount);
         
         forward.setRedirect(false);
-		forward.setPath("/board/board_list.jsp");
+		forward.setPath("/travelreview/travelreviewList.jsp");
 		
 		return forward;
 	}
