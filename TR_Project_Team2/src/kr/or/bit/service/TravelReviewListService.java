@@ -10,12 +10,6 @@ import kr.or.bit.action.ActionForward;
 import kr.or.bit.dao.TravelReviewDao;
 import kr.or.bit.dto.TravelReview;
 
-/*
-작업일자 : 2019-05-09
-작업자 :   이힘찬
-작업내용 : TravelReviewListService 작성
-*/
-
 public class TravelReviewListService implements Action {
 
 	@Override
@@ -47,10 +41,8 @@ public class TravelReviewListService implements Action {
         }
         //페이지 갯수 : 102 건 , pagesize :5   pagecount: 21
         
-
         
         List<TravelReview> list= dao.list(cpage, pagesize);
-		
         
         ActionForward forward = new ActionForward();
         request.setAttribute("cpage", cpage);
@@ -60,7 +52,7 @@ public class TravelReviewListService implements Action {
         request.setAttribute("totalboardCount", totalboardCount);
         
         forward.setRedirect(false);
-		forward.setPath("/board/board_list.jsp");
+		forward.setPath("/travelreview/travelreviewList.jsp");
 		
 		return forward;
 	}
