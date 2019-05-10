@@ -26,7 +26,7 @@ public class NoticeInsertOkService implements Action {
 		
 		notidao.noticeWrite(notice);
 		
-		
+		forward.setPath("");//리스트로 이동
 		return forward;
 	}
 
