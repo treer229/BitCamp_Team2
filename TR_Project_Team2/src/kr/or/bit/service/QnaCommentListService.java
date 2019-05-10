@@ -26,7 +26,7 @@ public class QnaCommentListService implements Action{
 			QnaDao dao = new QnaDao();
 			replylist = dao.commentList(comments_num);
 			System.out.println(1);
-			JSONArray jsonarray = JSONArray.fromObject(replylist);
+			JSONArray jsonarray = JSONArray.fromObject(commentList);
 			System.out.println(2);
 			request.setAttribute("jsonarray", jsonarray);
 			System.out.println(3);
