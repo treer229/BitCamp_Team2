@@ -36,7 +36,8 @@ public class CommentsInsertService implements Action {
 		
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("/WEB-INF/Page/test.jsp");
+		request.setAttribute("notice_num", notice_num);
+		forward.setPath("/noticomlist.Comments");
 		System.out.println("서비스 끝");
 		return forward;
 	}

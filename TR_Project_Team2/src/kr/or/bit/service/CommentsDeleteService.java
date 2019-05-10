@@ -12,6 +12,7 @@ public class CommentsDeleteService implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
+		int notice_num = Integer.parseInt(request.getParameter("notice_num"));
 		int comment_num = Integer.parseInt(request.getParameter("comment_num"));
 		String id = request.getParameter("id");
 		String sessionid = request.getParameter("sessionid");
@@ -23,6 +24,7 @@ public class CommentsDeleteService implements Action {
 			System.out.println("실패");
 		}
 		
+		request.setAttribute("notice_num", notice_num);
 		forward.setPath("/noticomlist.Comments");
 		
 		return forward;
