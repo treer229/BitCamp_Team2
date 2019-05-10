@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="../travelreviewlist.TravelReview" method="post"><input type="submit" value="test"></form>
+	<form action="../TravelReviewList.TravelReview" method="post"><input type="submit" value="test"></form>
 </body>
 </html>
