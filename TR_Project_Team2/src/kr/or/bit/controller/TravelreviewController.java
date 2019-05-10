@@ -1,8 +1,6 @@
 package kr.or.bit.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.bit.action.Action;
 import kr.or.bit.action.ActionForward;
+<<<<<<< HEAD
+=======
 import kr.or.bit.service.TravelReviewCommentDeleteService;
 import kr.or.bit.service.TravelReviewCommentListService;
 import kr.or.bit.service.TravelReviewCommentService;
@@ -21,35 +21,45 @@ import kr.or.bit.service.TravelReviewEditService;
 import kr.or.bit.service.TravelReviewListService;
 import kr.or.bit.service.TravelReviewRewriteOkService;
 import kr.or.bit.service.TravelReviewWriteService;
+>>>>>>> 최종커밋
 
-/*
-작업일자 : 2019-05-10
-작업자 :   이힘찬
-작업내용 : TravelreviewController 작성
-*/
 
-@WebServlet("*.TravelReview")
+@WebServlet("*.Travelreview")
 public class TravelreviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+
     public TravelreviewController() {
         super();
+        // TODO Auto-generated constructor stub
     }
-    
-    protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	//request.setCharacterEncoding("UTF-8");
-        String requestURI = request.getRequestURI();
-        String contextPath = request.getContextPath();
-        String cmdURI = requestURI.substring(contextPath.length());
-        
-        
-        //http://localhost:8090/WebServlet_94_Board_Model2_Mvc/boardwrite.bbs
-        
-        //BoardCmd cmd = null;
-        //String viewPage = null;
-        ActionForward forward = new ActionForward();
-        Action action = null;
 
+<<<<<<< HEAD
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	ActionForward forward = null;
+    	Action action = null;
+    	
+    	//요청받기 시작
+    	String requestURI = request.getRequestURI();
+    	String ContextPath = request.getContextPath();
+    	String url_Command = requestURI.substring(ContextPath.length());
+
+    	System.out.println("requestURI"+requestURI+"컨트롤러 check");
+    	System.out.println("ContextPath"+ContextPath+"컨트롤러 check");
+    	System.out.println("url_Command"+url_Command+"컨트롤러 check");
+    	
+    	
+    	if(url_Command.equals("/Register.do")) {// 업무처리
+      	  
+    	   System.out.println("if확인");
+			
+			 
+
+    	}  else if(url_Command.equals("/MemoList.do")) {
+    		forward = new ActionForward();
+    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+    	}
+=======
         // 글 작성 화면 요청이 들어왔을때, ok  (화면처리)
         if(cmdURI.equals("/boardwrite.TravelReview")){
         	forward.setRedirect(false);
@@ -242,11 +252,14 @@ public class TravelreviewController extends HttpServlet {
         		dis.forward(request, response);
         	}
         }
+>>>>>>> 최종커밋
     }
+		
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
