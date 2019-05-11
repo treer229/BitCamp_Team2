@@ -1,10 +1,10 @@
-<%@page import="kr.or.kosta.dto.board"%>
+<%@page import="kr.or.bit.dto.TravelReview"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	//request.setCharacterEncoding("UTF-8");
 	String idx = (String)request.getAttribute("idx");
-	board boarddata = (board)request.getAttribute("boarddata");
+	TravelReview boarddata = (TravelReview)request.getAttribute("boarddata");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

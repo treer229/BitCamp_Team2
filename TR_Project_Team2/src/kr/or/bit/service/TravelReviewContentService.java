@@ -18,14 +18,18 @@ public class TravelReviewContentService implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		System.out.println("오늘은 금요일 이다씨발");
 		int tr_num = Integer.parseInt(request.getParameter("tr_num")); //글번호
-	
+		
+		System.out.println("오늘은 금요일 오잉");
 		//글번호를 가지고 오지 않았을 경우 예외처리
 		//if(idx==null || idx.trim().equals("")){
 		if(tr_num == 0) {
-			response.sendRedirect("../travelreviewlist.TravelReview");
+			
+			response.sendRedirect("travelreviewlist.TravelReview");
 		}
+		
 		
 		//idx = idx.trim();
 	
@@ -49,7 +53,7 @@ public class TravelReviewContentService implements Action{
 		//데이터 조회 출력(글번호가 없는 게시글에 조회시 ...)
 		TravelReview boarddto = dao.getContent(tr_num);//content(Integer.parseInt(idx));
 		if(boarddto == null){
-			response.sendRedirect("boardlist.bbs");
+			response.sendRedirect("TravelReviewList.TravelReview");
 		}
 		
 		ActionForward forward = new ActionForward();

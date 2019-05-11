@@ -52,7 +52,7 @@ public class TravelReviewListService implements Action {
         request.setAttribute("totalboardCount", totalboardCount);
         
         forward.setRedirect(false);
-		forward.setPath("/travelreview/travelreviewList.jsp");
+		forward.setPath("/WEB-INF/travelreview/travelreviewList.jsp");
 		
 		return forward;
 	}
