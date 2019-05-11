@@ -16,7 +16,6 @@ import kr.or.bit.dto.Member;
 작업일자 : 2019-05-08
 작업자 :   이힘찬
 작업내용 : MemberDao 작성
-편집자 : 이노진
 */
 
 public class MemberDao {
@@ -102,10 +101,7 @@ public class MemberDao {
 	
 	public boolean MemberInsert(Member member) {	//회원가입
 		int result = 0;
-<<<<<<< HEAD
-=======
 		boolean ok = false;
->>>>>>> 1차 커밋
 		 try {
 	         conn = ds.getConnection();
 	         String sql = "insert into member(id, password, name, gender, email, travel, admin) values(?,?,?,?,?,?,0)"; 
@@ -119,14 +115,11 @@ public class MemberDao {
 	         pstmt.setString(6, member.getTravel());
 	         
 	         result = pstmt.executeUpdate();
-<<<<<<< HEAD
-=======
 	         if(result > 0 ) {
 	        	 ok = true;
 	         }else {
 	        	 ok = false;
 	         }
->>>>>>> 1차 커밋
 	         
 	      } catch (Exception e) {
 	         System.out.println(e.getMessage());
@@ -134,11 +127,7 @@ public class MemberDao {
 	    	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){}
 				if(conn!=null) try{conn.close();}catch (Exception e){} //반환
 	      }
-<<<<<<< HEAD
-		return false;
-=======
 		return ok;
->>>>>>> 1차 커밋
 	}
 	
 	
@@ -224,33 +213,5 @@ public class MemberDao {
 				if(conn!=null) try{conn.close();}catch (Exception e){} //반환
 	      }
 	      return member;
-<<<<<<< HEAD
-	}
-	
-	public String PasswordSearch (String password) {	//비밀번호 조회
-		  PreparedStatement pstmt = null;
-	      ResultSet rs = null;
-	      Member member = new Member();
-	     try {
-	    	 conn = ds.getConnection();
-	         String sql = "select * from MEMBER where ID= ?";
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, id);
-	                  
-	         rs = pstmt.executeQuery();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}finally{
-			if(rs!=null) try {rs.close();}catch(Exception e) {}
-    	  	if(pstmt!=null) try{pstmt.close();}catch (Exception e){}
-			if(conn!=null) try{conn.close();}catch (Exception e){} //반환
-      }
-		return null;
-	}
-	
-	
-}
-=======
 	}
 }
->>>>>>> 1차 커밋
