@@ -67,13 +67,13 @@ body {
 		<div class="logo">
 		<h1> Login</h1>
 		</div>
-		<form action = "#" method = "post" id= "loginform" name="loginform">
+		<form action = "Loginok.do" method = "post" id= "loginform" name="loginform">
 				<input type="text" name="id" id="id" class="form-style" autocomplete="off" placeholder="ID"/>
 				<br>
 				<input type="password" name="password" id="password" class="form-style" placeholder="Password" />
 				<p><a href="#" ><small>비밀번호 찾기</small></a></p>	
 		<div class="form-item">
-			<p class="pull-left"><a href="#"><small>회원 가입</small></a></p>
+			<p class="pull-left"><a href="SighUp.do"><small>회원 가입</small></a></p>
 			<input type="button" class="login pull-right"  id = "login" name = "login" value="로그인">
 			<br>
 		</div>
