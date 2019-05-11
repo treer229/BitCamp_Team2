@@ -44,7 +44,7 @@ public class QnaContentService implements Action{
 			//데이터 조회 출력(글번호가 없는 게시글에 조회시 ...)
 			Qna qna = dao.getContent(qna_num);//content(Integer.parseInt(idx));
 			if(qna == null){
-				response.sendRedirect("boardlist.bbs");
+				response.sendRedirect("boardlist.do");
 			}
 			
 			ActionForward forward = new ActionForward();
