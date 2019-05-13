@@ -79,3 +79,8 @@ input[type="button"].login{
 }
 input[type="button"].login:hover{background-color: #fff; border:1px solid #000000; color:#000000; cursor:pointer;}
 input[type="button"].login:focus{outline: none;}
+
+#radioBtn .notActive{
+    color: #3276b1;
+    background-color: #fff;
+}
