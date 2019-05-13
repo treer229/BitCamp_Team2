@@ -2,7 +2,9 @@ package kr.or.bit.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +49,7 @@ public class CommentsController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
+
     		System.out.println("InsertNotice.Comments");
     		action = new CommentsInsertService();
       	  	try {
@@ -55,7 +58,6 @@ public class CommentsController extends HttpServlet {
 				System.out.println("컨트롤러 막힘");
 				e.printStackTrace();
 			}
-    		
 
     	}  else if(url_Command.equals("/noticomlist.Comments")) {
 
@@ -92,12 +94,13 @@ public class CommentsController extends HttpServlet {
 				System.out.println("컨트롤러 막힘");
 				e.printStackTrace();
 			}
+
     	}
     	if(forward != null) {
             RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
                 rd.forward(request, response);
             }
-    }
+
 		
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

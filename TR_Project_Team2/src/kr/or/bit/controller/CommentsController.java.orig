@@ -1,8 +1,19 @@
 package kr.or.bit.controller;
 
 import java.io.IOException;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 import javax.servlet.RequestDispatcher;
+=======
+>>>>>>> Hoguma
+=======
+
+import javax.servlet.RequestDispatcher;
+>>>>>>> origin/CptNO
+=======
+>>>>>>> origin/Hoguma
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,15 +27,23 @@ import kr.or.bit.action.ActionForward;
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 받지마세염
->>>>>>> 받지마세염
+>>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
+>>>>>>> f2aa63202350b469c29b7f4f818e6e426008d653
 import kr.or.bit.service.CommentsListService;
 import kr.or.bit.service.CommentsUpdateOkService;
 import kr.or.bit.service.CommentsUpdateService;
 import kr.or.bit.service.CommentsDeleteService;
 import kr.or.bit.service.CommentsInsertService;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -33,7 +52,11 @@ import kr.or.bit.service.CommentsInsertService;
 =======
 
 >>>>>>> 받지마세염
->>>>>>> 받지마세염
+>>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
+=======
+>>>>>>> origin/Hoguma
 
 /**
  * Servlet implementation class CommentsController
@@ -64,6 +87,11 @@ public class CommentsController extends HttpServlet {
     	
     	
     	if(url_Command.equals("/InsertNotice.Comments")) {// 공지사항 댓글 보기
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/CptNO
     		System.out.println("InsertNotice.Comments");
     		action = new CommentsInsertService();
       	  	try {
@@ -74,14 +102,21 @@ public class CommentsController extends HttpServlet {
 			}
     		
 <<<<<<< HEAD
+
 =======
+<<<<<<< HEAD
+=======
+    		
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
     		
 >>>>>>> 받지마세염
->>>>>>> 받지마세염
+>>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
+>>>>>>> f2aa63202350b469c29b7f4f818e6e426008d653
     	}  else if(url_Command.equals("/noticomlist.Comments")) {
 
     		System.out.println("noticomlist.Comments");
@@ -118,7 +153,15 @@ public class CommentsController extends HttpServlet {
 				e.printStackTrace();
 			}
 <<<<<<< HEAD
-
+<<<<<<< HEAD
+=======
+>>>>>>> origin/CptNO
+    	}
+    	if(forward != null) {
+            RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
+                rd.forward(request, response);
+            }
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -130,12 +173,18 @@ public class CommentsController extends HttpServlet {
 =======
 
 >>>>>>> 받지마세염
->>>>>>> 받지마세염
     	}
-    	if(forward != null) {
-            RequestDispatcher rd = request.getRequestDispatcher(forward.getPath());
-                rd.forward(request, response);
-            }
+>>>>>>> Hoguma
+=======
+>>>>>>> origin/CptNO
+=======
+    		
+    		
+    	}  else if(url_Command.equals("/MemoList.do")) {
+    //		forward = new ActionForward();
+    //		forward.setPath(/*여기에 주소를 넣어주세요*/);
+    	}
+>>>>>>> origin/Hoguma
     }
 		
 

@@ -77,7 +77,7 @@ public class SingletonHelper {
 	}
 
 	public static void main(String[] args) throws SQLException {
-	SingletonHelper s = new SingletonHelper();
+	
 
 	}
 	public void korea() {

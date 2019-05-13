@@ -53,7 +53,7 @@ public class TravelreviewController extends HttpServlet {
         // 글 작성 화면 요청이 들어왔을때, ok  (화면처리)
         if(cmdURI.equals("/boardwrite.TravelReview")){
         	forward.setRedirect(false);
-        	forward.setPath("/board/board_write.jsp");
+        	forward.setPath("/travelreview/travelreviewWrite.jsp");
         }
         
         // 글 리스트 보여주기, ok

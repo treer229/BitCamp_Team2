@@ -18,10 +18,7 @@
     
     
     //권한 처리 
-        if(session.getAttribute("userid")== null || !session.getAttribute("userid").equals("admin")){
-            //강제로 다른 페이지 이동
-             out.print("<script>location.href='Ex02_JDBC_Login.jsp'</script>");
-        }
+
     //한글 처리
         request.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
@@ -55,7 +52,6 @@
         }catch(Exception e){
             e.printStackTrace();
         }finally{
-            
             SingletonHelper.Close(pstmt);
         }
      

@@ -290,9 +290,9 @@ input[type=text]:placeholder {
 			</div>
 			<div style = "position : relative ; right: 50%">
 				<form action="Ex02_JDBC_loginok.jsp" method="post" name="loginForm"
-					id="joinForm" style = "width : auto ; height : auto ; clear : both">
+					id="joinForm" style = "width : auto; ; height : auto ; clear : both">
 						
-						<div style = "position : relative ; top: 200px">
+						<div style = "position : relative ; top: 500px">
 					<h3 style="text-align: center;"></h3>
 						<div class="wrapper fadeInDown" style = "height : auto; ">
  							 <div id="formContent" >
@@ -303,7 +303,7 @@ input[type=text]:placeholder {
       								<input type="text" id="login" class="fadeIn second" name="login" placeholder="ID입력">
       								<input type="password" id="password" class="form-control" name="password" placeholder="password" style = "width : 85%; margin-left: 7.5% ; text-align: center">
       								<input type="submit" class="fadeIn fourth" value="Log In" style = "margin: 10px 20px 10px"><br>
-      								 <a href = "Ex02_JDBC_JoinForm.jsp" style = "text-decoration: none; margin: 5px 20px 50px">회원 가입</a>
+      								 <a href = "Ex02_JDBC_JoinForm.jsp" style = "text-decoration: none; margin: 5px 20px 50px;">회원 가입</a>
   								  </div>
   								 
 								</div>
